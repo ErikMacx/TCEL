@@ -1,0 +1,84 @@
+---
+// Individual brief page. The question is the H1, the dek is the lead, the body
+// is answer-first. Carries Article + FAQPage schema built from frontmatter.
+// Drafts are built in dev only (hidden in production), matching the hub.
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const all = await getCollection('briefs');
+  const entries = import.meta.env.DEV ? all : all.filter((e) => !e.data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, dek, theme, date, readingTime } = entry.data;
+
+const themeLabel: Record<string, string> = {
+  Strategy: 'Strategy',
+  AI: 'AI implementation',
+  Leadership: 'Leadership',
+  SME: 'SME & growth',
+  Gulf: 'The Gulf',
+};
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const isoDate = date.toISOString().slice(0, 10);
+const longDate = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: dek,
+  datePublished: isoDate,
+  articleSection: themeLabel[theme],
+  author: { '@type': 'Person', '@id': 'https://www.tcel.com/#eric', name: 'Eric McLean' },
+  publisher: { '@id': 'https://www.tcel.com/#tcel' },
+  mainEntityOfPage: canonical,
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: title, acceptedAnswer: { '@type': 'Answer', text: dek } },
+  ],
+};
+---
+
+<Base title={`${title} | Eric McLean, TCEL`} description={dek} active="insights">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+
+  <main class="brief-page">
+    <article class="wrap">
+      <a class="back" href="/insights">Insights</a>
+      <span class="label">{themeLabel[theme]}</span>
+      <h1>{title}</h1>
+      <p class="lead">{dek}</p>
+      <div class="ameta"><span><i class="dot"></i>{longDate}</span><span><i class="dot"></i>{readingTime}</span></div>
+      <div class="prose">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Base>
+
+<style is:global>
+  .brief-page{padding-block:clamp(2.6rem,5vw,4.4rem)}
+  .brief-page article{max-width:74ch}
+  .brief-page .back{display:inline-block;margin-bottom:1.8rem;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);text-decoration:none}
+  .brief-page .back::before{content:"\2190  "}
+  .brief-page .label{display:block;margin-bottom:1rem}
+  .brief-page h1{font-size:clamp(2.1rem,1.5rem + 2.6vw,3.3rem);max-width:20ch;margin-bottom:1.3rem}
+  .brief-page .lead{font-size:clamp(1.18rem,1.06rem + .5vw,1.5rem);line-height:1.4;color:var(--ink);font-family:"Fraunces",Georgia,serif;font-style:italic;max-width:60ch;margin-bottom:1.6rem}
+  .brief-page .ameta{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;padding-bottom:1.8rem;border-bottom:1px solid var(--line);margin-bottom:2rem}
+  .brief-page .ameta span{display:inline-flex;align-items:center;gap:.5rem}
+  .brief-page .prose p{color:var(--ink-soft);margin-bottom:1.2rem;max-width:66ch}
+  .brief-page .prose p em{color:var(--muted)}
+  .brief-page .prose h2{font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);margin:2rem 0 1rem}
+  .brief-page .prose h3{font-size:1.25rem;margin:1.6rem 0 .8rem}
+  .brief-page .prose a{color:var(--accent-deep);text-underline-offset:3px}
+</style>

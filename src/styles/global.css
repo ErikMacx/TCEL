@@ -1,0 +1,71 @@
+/* ------------------------------------------------------------------
+   TCEL global stylesheet.
+   Shared chrome extracted verbatim from index.html / insights.html:
+   colour tokens, fonts, header, nav, buttons, footer, and the
+   reduced-motion accessibility pattern. Page-specific rules live in
+   each page's own <style> block.
+   Do not introduce em dashes anywhere.
+   ------------------------------------------------------------------ */
+
+:root{--bg:#F4EEE2;--bg-2:#ECE4D3;--ink:#1A1611;--ink-soft:#3A332A;--muted:#736A5C;--line:#DBD1BF;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(120% 80% at 72% -8%,#FBF6EA 0%,var(--bg) 52%) no-repeat,var(--bg);color:var(--ink);font-family:"Hanken Grotesk",-apple-system,sans-serif;font-size:clamp(1rem,0.96rem + 0.2vw,1.12rem);line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.015em;color:var(--ink)}
+a{color:inherit}
+.label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
+.dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}
+
+/* header + nav */
+header{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--bg) 86%,transparent);backdrop-filter:blur(9px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;flex-direction:column;gap:.18rem;text-decoration:none;line-height:1.05}
+.brand .mark{font-family:"Fraunces",serif;font-weight:600;font-size:1.32rem;letter-spacing:-.01em;color:var(--ink)}
+.brand .sub{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.navlinks{display:flex;align-items:center;gap:1.9rem}
+.navlinks a{font-size:.92rem;text-decoration:none;color:var(--ink-soft);position:relative;padding:.2rem 0}
+.navlinks a.active{color:var(--accent-deep)}
+.navlinks a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent-deep);transition:width .28s ease}
+.navlinks a:not(.btn):hover::after,.navlinks a.active::after{width:100%}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:.92rem;text-decoration:none;padding:.72rem 1.25rem;border-radius:2px;transition:transform .2s,background .2s,box-shadow .2s,border-color .2s;cursor:pointer;border:1px solid var(--accent)}
+.btn-primary{background:var(--accent);color:#241a0c}
+.btn-primary:hover{background:#956322;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(120,80,10,.6)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.menu-toggle{display:none;background:none;border:0;font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+
+/* footer */
+footer{background:var(--ink);color:var(--on-dark);padding-block:clamp(2.6rem,5vw,3.8rem)}
+.foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
+footer .mark{font-family:"Fraunces",serif;font-weight:600;font-size:1.3rem;color:var(--on-dark)}
+footer .desc{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted);margin-top:.5rem}
+.foot-col a{display:block;color:var(--on-dark-muted);text-decoration:none;font-size:.95rem;margin-bottom:.5rem;transition:color .2s}
+.foot-col a:hover{color:var(--on-dark)}
+.foot-col .h{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#CC9C54;margin-bottom:.9rem}
+.copy{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(238,229,212,.14);font-size:.82rem;color:var(--on-dark-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+
+/* ------------------------------------------------------------------
+   Accessibility pattern, preserved exactly from the source.
+   Content is visible by DEFAULT. The fade-in is purely additive and
+   only runs for people who allow motion (and, for scroll reveals,
+   have JS). Reduce Motion or a script failure can never hide content.
+   ------------------------------------------------------------------ */
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: no-preference){
+  .hero .eyebrow,.hero h1,.hero .lead,.hero .cta-row,.hero .meta,.pain-panel{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1{animation-delay:.07s}.hero .lead{animation-delay:.16s}.hero .cta-row{animation-delay:.26s}.hero .meta{animation-delay:.34s}.pain-panel{animation-delay:.28s}
+  html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  html.js .reveal.in{opacity:1;transform:none}
+}
+
+/* shared mobile nav (header is reused on every page) */
+@media(max-width:720px){
+  .navlinks{position:fixed;inset:78px 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem var(--pad) 1.4rem;transform:translateY(-135%);transition:transform .35s ease;z-index:40}
+  .navlinks.open{transform:translateY(0)}.navlinks a{padding:.85rem 0;width:100%;border-bottom:1px solid var(--line)}.navlinks .btn{margin-top:1rem}
+  .menu-toggle{display:block}
+}

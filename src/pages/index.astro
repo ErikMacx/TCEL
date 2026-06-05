@@ -1,0 +1,264 @@
+---
+// Homepage. Ported verbatim from index.html (the locked design and copy).
+// Person + ProfessionalService schema comes from Base; FAQPage is added here.
+import Base from '../layouts/Base.astro';
+import { CAL_URL } from '../consts';
+
+const title = 'Eric McLean | Strategy & transformation for the CEOs of complex groups | TCEL';
+const description =
+  'Eric McLean (TCEL) works with the CEOs of complex, multi-business organisations across the Gulf and EMEA to build one clear, measurable strategy on OGSM and Strategy Maps, and the discipline to deliver it. Forty years of hands-on leadership, with real delivery in Qatar, the UAE and Oman.';
+const ogTitle = 'Eric McLean | Strategy & transformation for the CEOs of complex groups';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': 'https://www.tcel.com/#faq',
+  mainEntity: [
+    { '@type': 'Question', name: 'Do you use OGSM?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. OGSM (Objectives, Goals, Strategies, Measures) is the core framework we use to give a complex, multi-business group one strategy every business can act on and be measured against.' } },
+    { '@type': 'Question', name: 'What is a Strategy Map, and why does it matter for a complex group?', acceptedAnswer: { '@type': 'Answer', text: 'A Strategy Map makes explicit how your group creates value across four linked perspectives: financial, customer, internal process, and people and learning. For a diversified group it aligns the CEO, the owners and operating management around one shared logic of how value is built.' } },
+    { '@type': 'Question', name: 'Have you actually worked in the Gulf, or only remotely?', acceptedAnswer: { '@type': 'Answer', text: "On the ground. I have worked in Qatar, the UAE and Oman, and delivered Qatarisation and Omanisation programmes, so the region's commercial and regulatory realities are not theory to me." } },
+    { '@type': 'Question', name: 'Are you an AI consultant or a strategy consultant?', acceptedAnswer: { '@type': 'Answer', text: 'A strategy consultant who is fluent in AI. We decide together where AI genuinely creates advantage and put it inside a sound strategy, rather than adopt tools in search of a purpose.' } },
+    { '@type': 'Question', name: 'Do you take interim or fractional roles?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Fractional CEO or COO and interim leadership for groups that need senior firepower through a transition, alongside the strategy work.' } },
+  ],
+};
+---
+
+<Base title={title} description={description} ogTitle={ogTitle}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqSchema)} />
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <span class="label eyebrow">Strategy &amp; transformation · Gulf &amp; EMEA</span>
+          <h1>Your business units may each have a strategy.<br>Are they aligned with the&nbsp;Group?</h1>
+          <p class="lead">We build the one strategy your whole portfolio runs on, and stay until it delivers.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href={CAL_URL} target="_blank" rel="noopener">Book a conversation</a>
+            <a class="btn btn-ghost" href="#approach">See how it works</a>
+          </div>
+          <div class="meta">
+            <span><i class="dot"></i>Qatar · UAE · Oman</span>
+            <span><i class="dot"></i>Based in Cyprus</span>
+            <span><i class="dot"></i>40 years</span>
+          </div>
+        </div>
+
+        <aside class="pain-panel" aria-label="Common challenges">
+          <p class="ptop">Sound familiar?</p>
+          <div class="pain"><span class="pn">01</span><p>You set the direction in January. By March, everyone has drifted back.</p></div>
+          <div class="pain"><span class="pn">02</span><p>Two or three businesses quietly carry the rest, and nobody says so out loud.</p></div>
+          <div class="pain"><span class="pn">03</span><p>A dozen priorities, which is the same as <b>none</b>.</p></div>
+          <div class="pain"><span class="pn">04</span><p>Everyone is talking about AI. No one can tell you what it changes for you.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="wrap"><div class="topline"></div></div>
+      <div class="wrap" style="padding-top:clamp(2.6rem,5vw,4rem)">
+        <div class="sec-head">
+          <span class="label">The problem</span>
+          <h2>The effort is there. A single strategy isn't.</h2>
+        </div>
+        <p class="lead-col">Most groups are not short of talented people or hard work. They are short of one coherent strategy that the whole portfolio is actually executing. So good businesses pull in different directions, capital follows habit, and a year of real effort adds up to less than it should. The work of strategy is not to shrink your world onto a page. It is to give a genuinely complex group a clear, shared logic for where it wins, and the discipline to hold to it.</p>
+      </div>
+    </section>
+
+    <!-- B: the prize -->
+    <section class="prize">
+      <div class="wrap">
+        <div class="rule"></div>
+        <h2>Make the group worth more than the sum of its businesses.</h2>
+        <p>That is what one strategy, owned and executed across the whole portfolio, is actually for.</p>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="sec-head"><span class="label">Approach</span><h2>Three jobs, one arc.</h2></div>
+        <div class="pillars reveal">
+          <div class="pillar">
+            <div class="num">01</div><h3>Set the strategy</h3>
+            <p>Working with you and your leadership, we build a strategy the whole group can act on. <b>OGSM</b> gives every business clear objectives, goals, strategies and measures that ladder up to the group's. <b>Strategy Maps</b> make explicit how the group creates value, so the CEO, the owners and operating management read one logic, not twelve.</p>
+          </div>
+          <div class="pillar">
+            <div class="num">02</div><h3>Execute the change</h3>
+            <p>Strategy is worthless on a shelf. Together we build the governance, alignment and operating rhythm that turn the plan into quarterly progress, drawing on real depth in operations, procurement, marketing and HR.</p>
+          </div>
+          <div class="pillar">
+            <div class="num">03</div><h3>Build the capability</h3>
+            <p>We do not create dependence. Through workshops, organisational development and management education, your people learn to run the discipline themselves. It is the same capability transfer behind the <b>Qatarisation and Omanisation</b> programmes I have led.</p>
+          </div>
+        </div>
+        <div class="toolkit reveal">
+          <div class="tk-label">The tools we work with</div>
+          <div class="tk-grid">
+            <span class="tk"><i></i>OGSM</span>
+            <span class="tk"><i></i>Strategy Maps</span>
+            <span class="tk"><i></i>Balanced Scorecard</span>
+            <span class="tk"><i></i>Portfolio &amp; capital allocation</span>
+            <span class="tk"><i></i>Scenario planning</span>
+            <span class="tk"><i></i>Operating model design</span>
+            <span class="tk"><i></i>Change &amp; governance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head"><span class="label">About</span><h2>A senior operator, not a junior consultant.</h2></div>
+        <div class="about-grid">
+          <div class="portrait reveal"><div class="ph">EM</div><div class="cap">Eric McLean · Founder, TCEL</div></div>
+          <div class="body reveal">
+            <p>Forty years running operations, growth and change across multinational businesses in <b>finance, technology and telecommunications</b>. I have worked on the ground in Qatar, the UAE and Oman, and delivered Qatarisation and Omanisation programmes, so building capability in the region is not theory to me.</p>
+            <p>I work alongside the <b>CEO carrying the group</b>, as a peer who has actually run businesses, and as a neutral outsider with no stake in internal politics. Based in Cyprus: EU, English speaking and discreet, a natural bridge to the Gulf, EMEA and Asia.</p>
+            <div class="creds">
+              <div class="cred"><div class="k">Sectors</div><div class="v">Finance · Technology · Telecoms</div></div>
+              <div class="cred"><div class="k">In region</div><div class="v">Qatar · UAE · Oman</div></div>
+              <div class="cred"><div class="k">Frameworks</div><div class="v">OGSM · Strategy Maps</div></div>
+              <div class="cred"><div class="k">Localisation</div><div class="v">Qatarisation · Omanisation</div></div>
+              <div class="cred"><div class="k">Experience</div><div class="v">Four decades, hands-on</div></div>
+              <div class="cred"><div class="k">Base</div><div class="v">Cyprus · EU</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark">
+      <div class="wrap">
+        <div class="sec-head"><span class="label">Why me</span><h2>The empty middle of three crowded markets.</h2></div>
+        <div class="diffs reveal">
+          <div class="diff"><div class="x">Not the strategy houses</div><p>who send junior teams, hand over a deck, and leave.</p></div>
+          <div class="diff"><div class="x">Not the AI vendors</div><p>who sell tools without a strategy to put them in.</p></div>
+          <div class="diff"><div class="x">Not the fly-in consultant</div><p>for whom the region is a slide, not a track record.</p></div>
+        </div>
+        <p class="closing">One senior partner who has actually run businesses like yours, sets the strategy with you, stays for the execution, and leaves you able to run it.</p>
+      </div>
+    </section>
+
+    <section class="ai-note">
+      <div class="wrap inner">
+        <span class="label">On AI</span>
+        <h2>AI belongs inside your strategy, not on top of it.</h2>
+        <p>It is one of the pressures on every group right now, and most of the noise comes from adopting tools in search of a purpose. We decide together where AI genuinely creates advantage, then build it into the plan you are already executing. <b>Strategy first; AI as a tool, not a religion.</b></p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="sec-head"><span class="label">Questions</span><h2>Straight answers.</h2></div>
+        <div class="faq-list">
+          <div class="faq reveal"><h3>Do you use OGSM?</h3><p>Yes. OGSM (Objectives, Goals, Strategies, Measures) is the core framework we use to give a complex, multi-business group one strategy every business can act on and be measured against.</p></div>
+          <div class="faq reveal"><h3>What is a Strategy Map, and why does it matter for a complex group?</h3><p>A Strategy Map makes explicit how your group creates value across four linked perspectives: financial, customer, internal process, and people and learning. For a diversified group it aligns the CEO, the owners and operating management around one shared logic of how value is built.</p></div>
+          <div class="faq reveal"><h3>Have you actually worked in the Gulf, or only remotely?</h3><p>On the ground. I have worked in Qatar, the UAE and Oman, and delivered Qatarisation and Omanisation programmes, so the region's commercial and regulatory realities are not theory to me.</p></div>
+          <div class="faq reveal"><h3>Are you an AI consultant or a strategy consultant?</h3><p>A strategy consultant who is fluent in AI. We decide together where AI genuinely creates advantage and put it inside a sound strategy, rather than adopt tools in search of a purpose.</p></div>
+          <div class="faq reveal"><h3>Do you take interim or fractional roles?</h3><p>Yes. Fractional CEO or COO and interim leadership for groups that need senior firepower through a transition, alongside the strategy work.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="close" id="book">
+      <div class="wrap">
+        <span class="label">Let's talk</span>
+        <h2>Where your group is now, and where the strategy needs to go.</h2>
+        <p>A short, confidential conversation. No deck, no pitch, just a senior view on your situation.</p>
+        <!-- TODO(booking): Cal.com placeholder link -->
+        <a class="btn btn-primary" href={CAL_URL} target="_blank" rel="noopener" style="font-size:1rem;padding:.85rem 1.7rem">Book a conversation</a>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style is:global>
+  /* Homepage-specific layout, extracted verbatim from index.html. */
+  .hero{padding-top:clamp(2rem,4vw,3.6rem);padding-bottom:clamp(2.6rem,6vw,4.6rem)}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .hero .eyebrow{margin-bottom:1.5rem;display:block}
+  .hero h1{font-size:clamp(2.2rem,1.2rem + 4vw,4.2rem);max-width:18ch;margin-bottom:1.5rem}
+  .hero .lead{font-size:clamp(1.08rem,1.02rem + .4vw,1.28rem);line-height:1.55;max-width:50ch;color:var(--ink-soft)}
+  .hero .lead b{font-weight:600;color:var(--ink)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.1rem}
+  .hero .meta{margin-top:2.2rem;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1.1rem}
+  .hero .meta span{display:inline-flex;align-items:center;gap:.5rem}
+
+  .pain-panel{background:linear-gradient(180deg,#FCF8EF,#F5EFE2);border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.7rem 1.1rem;box-shadow:0 34px 64px -42px rgba(70,46,12,.4)}
+  .pain-panel .ptop{font-family:"Fraunces",serif;font-style:italic;font-size:1.18rem;color:var(--ink);padding-bottom:.95rem;border-bottom:1px solid var(--line)}
+  .pain{display:flex;gap:.85rem;align-items:flex-start;padding:.82rem 0;border-bottom:1px dashed var(--line)}
+  .pain:last-child{border-bottom:0}
+  .pain .pn{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--accent-deep);padding-top:.22rem;flex:none}
+  .pain p{font-size:1.01rem;line-height:1.4;color:var(--ink-soft)}
+  .pain p b{color:var(--ink);font-weight:600}
+
+  section{padding-block:clamp(3.2rem,7vw,5.6rem)}
+  .topline{height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+  .sec-head{margin-bottom:2.4rem;max-width:64ch}
+  .sec-head .label{display:block;margin-bottom:1rem}
+  .sec-head h2{font-size:clamp(1.9rem,1.4rem + 1.8vw,3rem);max-width:22ch}
+  .lead-col{max-width:62ch;font-size:clamp(1.06rem,1rem + .35vw,1.24rem);color:var(--ink-soft)}
+  .lead-col b{color:var(--ink);font-weight:600}
+
+  .prize{text-align:center;padding-block:clamp(3.4rem,7vw,5.4rem)}
+  .prize .rule{width:44px;height:2px;background:var(--accent);margin:0 auto 1.7rem}
+  .prize h2{font-size:clamp(2rem,1.4rem + 2.2vw,3.2rem);line-height:1.08;max-width:26ch;margin-inline:auto}
+  .prize p{margin-top:1.2rem;color:var(--ink-soft);font-size:clamp(1.05rem,1rem + .35vw,1.2rem);max-width:48ch;margin-inline:auto}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .pillar{padding:2.1rem 1.8rem 2.4rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .pillar:nth-child(3n){border-right:0}
+  .pillar .num{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--accent-deep);letter-spacing:.1em;margin-bottom:1.1rem}
+  .pillar h3{font-size:1.5rem;margin-bottom:.8rem}
+  .pillar p{color:var(--ink-soft);font-size:1rem}
+  .pillar p b{color:var(--ink);font-weight:600}
+  .toolkit{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.5rem}
+  .toolkit .tk-label{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+  .tk-grid{display:flex;flex-wrap:wrap;gap:.65rem}
+  .tk{font-size:.9rem;color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:.5rem .9rem;background:var(--bg);display:inline-flex;align-items:center;gap:.55rem}
+  .tk i{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
+
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+  .portrait{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,var(--bg-2),var(--bg));overflow:hidden}
+  .portrait::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 13px,rgba(166,113,43,.06) 13px 14px)}
+  .portrait .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:4.4rem;color:var(--line)}
+  .portrait .cap{position:absolute;bottom:0;left:0;z-index:1;padding:1.05rem 1.2rem;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  .about-grid .body p{color:var(--ink-soft);margin-bottom:1.1rem;max-width:54ch}
+  .about-grid .body p b{color:var(--ink);font-weight:600}
+  .creds{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.8rem}
+  .cred{background:var(--bg);padding:1.05rem 1.15rem}
+  .cred .k{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .cred .v{font-family:"Fraunces",serif;font-size:1.02rem;color:var(--ink);line-height:1.25}
+
+  .dark{background:linear-gradient(180deg,var(--dark),var(--dark-2));color:var(--on-dark)}
+  .dark .label{color:#CC9C54}.dark h2{color:var(--on-dark)}
+  .diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.4rem,3vw,2.6rem);margin-top:2.4rem}
+  .diff{border-top:1px solid rgba(238,229,212,.2);padding-top:1.2rem}
+  .diff .x{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#CC9C54;margin-bottom:.7rem}
+  .diff p{color:var(--on-dark);font-size:1.04rem;line-height:1.5}
+  .dark .closing{margin-top:2.8rem;font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.3rem,1.1rem + 1vw,1.95rem);max-width:34ch;line-height:1.25;color:var(--on-dark)}
+
+  .ai-note{background:var(--bg-2)}
+  .ai-note .inner{max-width:60ch}
+  .ai-note h2{font-size:clamp(1.7rem,1.3rem + 1.5vw,2.5rem);margin:1rem 0 1.4rem;max-width:24ch}
+  .ai-note p{font-size:clamp(1.08rem,1rem + .45vw,1.3rem);color:var(--ink-soft);line-height:1.5}
+  .ai-note p b{color:var(--ink);font-weight:600}
+
+  .faq-list{border-top:1px solid var(--line)}
+  .faq{border-bottom:1px solid var(--line);padding:1.7rem 0;display:grid;grid-template-columns:1fr;gap:.6rem}
+  .faq h3{font-size:1.26rem}.faq p{color:var(--ink-soft);max-width:66ch}
+  @media(min-width:820px){.faq{grid-template-columns:.9fr 1.5fr;gap:2.5rem;align-items:start}}
+
+  .close{text-align:center;padding-block:clamp(4rem,9vw,6.5rem)}
+  .close .label{display:block;margin-bottom:1.2rem}
+  .close h2{font-size:clamp(2.1rem,1.5rem + 2.4vw,3.5rem);max-width:18ch;margin-inline:auto;margin-bottom:1.4rem}
+  .close p{color:var(--ink-soft);max-width:44ch;margin-inline:auto;margin-bottom:2.2rem}
+
+  @media(max-width:960px){
+    .hero-grid{grid-template-columns:1fr;gap:2.4rem}.pain-panel{max-width:480px}
+    .pillars{grid-template-columns:1fr}.pillar{border-right:0}
+    .about-grid{grid-template-columns:1fr}.portrait{max-width:340px;aspect-ratio:4/4.6}
+    .diffs{grid-template-columns:1fr}
+  }
+  @media(max-width:720px){.creds{grid-template-columns:1fr}}
+</style>

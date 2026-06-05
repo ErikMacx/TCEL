@@ -1,0 +1,144 @@
+---
+// Insights hub ("The Landscape"). Ported from insights.html, with the brief
+// lists driven by the briefs content collection. Grouped by theme, newest
+// first. Drafts are hidden in production (shown in dev so the structure is
+// visible). The featured brief is shown once, at the top, not in its group.
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { NEWSLETTER_ACTION } from '../../consts';
+
+const title = 'Insights | Briefs on strategy, AI, leadership and growth | Eric McLean, TCEL';
+const description =
+  'Short, opinionated briefs from Eric McLean (TCEL) on the questions leaders actually ask: strategy for complex groups, AI implementation, leadership, SME growth, and the realities of building in the Gulf. A new brief every fortnight.';
+
+const all = await getCollection('briefs');
+// Drafts are hidden in production, visible in dev for preview.
+const visible = all
+  .filter((b) => import.meta.env.DEV || !b.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const featured = visible.find((b) => b.data.featured);
+const rest = visible.filter((b) => !b.data.featured);
+
+// Theme key -> display label, in the order the hub presents them.
+const themes: [string, string][] = [
+  ['Strategy', 'Strategy'],
+  ['AI', 'AI implementation'],
+  ['Leadership', 'Leadership'],
+  ['SME', 'SME & growth'],
+  ['Gulf', 'The Gulf'],
+];
+
+const monthYear = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+---
+
+<Base title={title} description={description} active="insights">
+  <main>
+    <section class="phead">
+      <div class="wrap">
+        <span class="label">Insights · The Landscape</span>
+        <h1>Briefs on the questions leaders actually ask.</h1>
+        <p>Short, opinionated pieces on strategy, AI, leadership and growth, grounded in forty years of running businesses and built in the Gulf. Written to be useful to a busy CEO, and clear enough that an AI can quote them straight.</p>
+        <span class="cadence"><i class="dot"></i>A new brief every fortnight</span>
+      </div>
+    </section>
+
+    <section class="wrap">
+      {featured && (
+        <a class="feature" href={`/insights/${featured.id}`}>
+          <span class="tag">{featured.data.theme} · Latest</span>
+          <h2>{featured.data.title}</h2>
+          <p>{featured.data.dek}</p>
+          <div class="bmeta">{monthYear(featured.data.date)} · {featured.data.readingTime} read</div>
+        </a>
+      )}
+
+      {themes.map(([key, label]) => {
+        const items = rest.filter((b) => b.data.theme === key);
+        if (items.length === 0) return null;
+        const count = items.filter((b) => !b.data.comingSoon).length;
+        return (
+          <Fragment>
+            <div class="theme-head"><h2>{label}</h2><span class="cnt">{count} brief{count === 1 ? '' : 's'}</span></div>
+            <div class="briefs">
+              {items.map((b) =>
+                b.data.comingSoon ? (
+                  <div class="brief" style="opacity:.55">
+                    <span class="tag">{b.data.theme} · Coming soon</span>
+                    <h3>{b.data.title}</h3>
+                    <p>{b.data.dek}</p>
+                    <div class="bmeta">Draft</div>
+                  </div>
+                ) : (
+                  <a class="brief" href={`/insights/${b.id}`}>
+                    <span class="tag">{b.data.theme}</span>
+                    <h3>{b.data.title}</h3>
+                    <p>{b.data.dek}</p>
+                    <div class="bmeta">{monthYear(b.data.date)} · {b.data.readingTime}</div>
+                  </a>
+                )
+              )}
+            </div>
+          </Fragment>
+        );
+      })}
+
+      <div class="subscribe">
+        <span class="label">Stay in the loop</span>
+        <h2>The briefs go out every fortnight.</h2>
+        <p>One considered piece on strategy, AI and leadership. No noise, unsubscribe anytime.</p>
+        <!-- TODO(newsletter): connect to the chosen platform (Beehiiv, Kit or MailerLite). -->
+        <form class="subform" action={NEWSLETTER_ACTION} method="post" onsubmit="return false">
+          <input type="email" placeholder="you@company.com" aria-label="Email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="fine">Connects to your newsletter platform once set up.</div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style is:global>
+  /* Insights-specific layout, extracted verbatim from insights.html. */
+  /* Per-page base overrides to match the source insights page exactly. */
+  body{background:radial-gradient(120% 70% at 72% -10%,#FBF6EA 0%,var(--bg) 50%) no-repeat,var(--bg)}
+  h1,h2,h3{line-height:1.07}
+  .dot{width:5px;height:5px}
+
+  .phead{padding-top:clamp(2.6rem,5vw,4.2rem);padding-bottom:clamp(2rem,4vw,3rem)}
+  .phead .label{display:block;margin-bottom:1.1rem}
+  .phead h1{font-size:clamp(2.4rem,1.5rem + 3.6vw,4rem);max-width:18ch;margin-bottom:1.3rem}
+  .phead p{max-width:56ch;font-size:clamp(1.08rem,1rem + .4vw,1.26rem);color:var(--ink-soft)}
+  .phead .cadence{margin-top:1.4rem;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:.55rem}
+
+  .feature{display:block;text-decoration:none;border:1px solid var(--line);border-radius:3px;background:linear-gradient(180deg,#FCF8EF,#F5EFE2);padding:clamp(1.6rem,4vw,2.4rem);box-shadow:0 30px 60px -44px rgba(70,46,12,.38);transition:transform .25s,box-shadow .25s;margin-bottom:clamp(2.4rem,5vw,3.4rem)}
+  .feature:hover{transform:translateY(-3px);box-shadow:0 40px 70px -44px rgba(70,46,12,.5)}
+  .feature .tag{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+  .feature h2{font-size:clamp(1.7rem,1.3rem + 1.8vw,2.6rem);max-width:22ch;margin:.9rem 0 .9rem}
+  .feature p{max-width:64ch;color:var(--ink-soft);font-size:1.08rem}
+  .feature .bmeta{margin-top:1.2rem;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .theme-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:.8rem;margin:clamp(2.4rem,5vw,3.2rem) 0 0}
+  .theme-head h2{font-size:1.55rem}
+  .theme-head .cnt{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .briefs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:0}
+  .brief{background:var(--bg);padding:1.5rem 1.6rem 1.55rem;display:flex;flex-direction:column;gap:.65rem;text-decoration:none;transition:background .2s}
+  .brief:hover{background:#FBF6EA}
+  .brief .tag{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
+  .brief h3{font-size:1.3rem;line-height:1.16}
+  .brief p{font-size:.98rem;color:var(--ink-soft);line-height:1.45;flex:1}
+  .brief .bmeta{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  .subscribe{background:linear-gradient(180deg,var(--dark),var(--dark-2));color:var(--on-dark);border-radius:3px;padding:clamp(2rem,5vw,3.4rem);text-align:center;margin:clamp(3rem,6vw,4.5rem) 0}
+  .subscribe .label{color:#CC9C54;display:block;margin-bottom:1rem}
+  .subscribe h2{color:var(--on-dark);font-size:clamp(1.6rem,1.3rem + 1.4vw,2.4rem);max-width:20ch;margin:0 auto 1rem}
+  .subscribe p{color:var(--on-dark-muted);max-width:44ch;margin:0 auto 1.8rem}
+  .subform{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:480px;margin:0 auto}
+  .subform input{flex:1;min-width:220px;background:rgba(238,229,212,.06);border:1px solid rgba(238,229,212,.25);border-radius:2px;padding:.8rem 1rem;color:var(--on-dark);font-family:"Hanken Grotesk",sans-serif;font-size:.95rem}
+  .subform input::placeholder{color:var(--on-dark-muted)}
+  .subform button{background:var(--accent);color:#241a0c;border:0;border-radius:2px;padding:.8rem 1.4rem;font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;transition:background .2s}
+  .subform button:hover{background:#C0883A}
+  .subscribe .fine{margin-top:1rem;font-size:.78rem;color:var(--on-dark-muted)}
+
+  @media(max-width:760px){.briefs{grid-template-columns:1fr}}
+</style>

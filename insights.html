@@ -1,0 +1,196 @@
+<!doctype html>
+<!-- Eric McLean / TCEL Insights ("Landscape") hub. Pairs with index.html.
+     In production each brief is its own answer-first page with Article + FAQ schema.
+     Entries below are placeholders showing the structure and the bar. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insights | Briefs on strategy, AI, leadership and growth | Eric McLean, TCEL</title>
+  <meta name="description" content="Short, opinionated briefs from Eric McLean (TCEL) on the questions leaders actually ask: strategy for complex groups, AI implementation, leadership, SME growth, and the realities of building in the Gulf. A new brief every fortnight." />
+  <meta name="author" content="Eric McLean" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#F4EEE2;--bg-2:#ECE4D3;--ink:#1A1611;--ink-soft:#3A332A;--muted:#736A5C;--line:#DBD1BF;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:radial-gradient(120% 70% at 72% -10%,#FBF6EA 0%,var(--bg) 50%) no-repeat,var(--bg);color:var(--ink);font-family:"Hanken Grotesk",-apple-system,sans-serif;font-size:clamp(1rem,0.96rem + 0.2vw,1.12rem);line-height:1.66;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
+    .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+    h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.07;letter-spacing:-.015em;color:var(--ink)}
+    a{color:inherit}
+    .label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
+    header{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--bg) 86%,transparent);backdrop-filter:blur(9px);border-bottom:1px solid transparent;transition:border-color .3s}
+    header.scrolled{border-color:var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+    .brand{display:flex;flex-direction:column;gap:.18rem;text-decoration:none;line-height:1.05}
+    .brand .mark{font-family:"Fraunces",serif;font-weight:600;font-size:1.32rem;color:var(--ink)}
+    .brand .sub{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+    .navlinks{display:flex;align-items:center;gap:1.9rem}
+    .navlinks a{font-size:.92rem;text-decoration:none;color:var(--ink-soft);position:relative;padding:.2rem 0}
+    .navlinks a.active{color:var(--accent-deep)}
+    .navlinks a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent-deep);transition:width .28s}
+    .navlinks a:not(.btn):hover::after,.navlinks a.active::after{width:100%}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.92rem;text-decoration:none;padding:.72rem 1.25rem;border-radius:2px;border:1px solid var(--accent);background:var(--accent);color:#241a0c;transition:transform .2s,background .2s,box-shadow .2s;cursor:pointer}
+    .btn:hover{background:#956322;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(120,80,10,.6)}
+    .menu-toggle{display:none;background:none;border:0;font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+
+    .phead{padding-top:clamp(2.6rem,5vw,4.2rem);padding-bottom:clamp(2rem,4vw,3rem)}
+    .phead .label{display:block;margin-bottom:1.1rem}
+    .phead h1{font-size:clamp(2.4rem,1.5rem + 3.6vw,4rem);max-width:18ch;margin-bottom:1.3rem}
+    .phead p{max-width:56ch;font-size:clamp(1.08rem,1rem + .4vw,1.26rem);color:var(--ink-soft)}
+    .phead .cadence{margin-top:1.4rem;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:.55rem}
+    .dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+    .feature{display:block;text-decoration:none;border:1px solid var(--line);border-radius:3px;background:linear-gradient(180deg,#FCF8EF,#F5EFE2);padding:clamp(1.6rem,4vw,2.4rem);box-shadow:0 30px 60px -44px rgba(70,46,12,.38);transition:transform .25s,box-shadow .25s;margin-bottom:clamp(2.4rem,5vw,3.4rem)}
+    .feature:hover{transform:translateY(-3px);box-shadow:0 40px 70px -44px rgba(70,46,12,.5)}
+    .feature .tag{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
+    .feature h2{font-size:clamp(1.7rem,1.3rem + 1.8vw,2.6rem);max-width:22ch;margin:.9rem 0 .9rem}
+    .feature p{max-width:64ch;color:var(--ink-soft);font-size:1.08rem}
+    .feature .bmeta{margin-top:1.2rem;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+    .theme-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:.8rem;margin:clamp(2.4rem,5vw,3.2rem) 0 0}
+    .theme-head h2{font-size:1.55rem}
+    .theme-head .cnt{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .briefs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:0}
+    .brief{background:var(--bg);padding:1.5rem 1.6rem 1.55rem;display:flex;flex-direction:column;gap:.65rem;text-decoration:none;transition:background .2s}
+    .brief:hover{background:#FBF6EA}
+    .brief .tag{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
+    .brief h3{font-size:1.3rem;line-height:1.16}
+    .brief p{font-size:.98rem;color:var(--ink-soft);line-height:1.45;flex:1}
+    .brief .bmeta{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+    .subscribe{background:linear-gradient(180deg,var(--dark),var(--dark-2));color:var(--on-dark);border-radius:3px;padding:clamp(2rem,5vw,3.4rem);text-align:center;margin:clamp(3rem,6vw,4.5rem) 0}
+    .subscribe .label{color:#CC9C54;display:block;margin-bottom:1rem}
+    .subscribe h2{color:var(--on-dark);font-size:clamp(1.6rem,1.3rem + 1.4vw,2.4rem);max-width:20ch;margin:0 auto 1rem}
+    .subscribe p{color:var(--on-dark-muted);max-width:44ch;margin:0 auto 1.8rem}
+    .subform{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;max-width:480px;margin:0 auto}
+    .subform input{flex:1;min-width:220px;background:rgba(238,229,212,.06);border:1px solid rgba(238,229,212,.25);border-radius:2px;padding:.8rem 1rem;color:var(--on-dark);font-family:"Hanken Grotesk",sans-serif;font-size:.95rem}
+    .subform input::placeholder{color:var(--on-dark-muted)}
+    .subform button{background:var(--accent);color:#241a0c;border:0;border-radius:2px;padding:.8rem 1.4rem;font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;transition:background .2s}
+    .subform button:hover{background:#C0883A}
+    .subscribe .fine{margin-top:1rem;font-size:.78rem;color:var(--on-dark-muted)}
+
+    footer{background:var(--ink);color:var(--on-dark);padding-block:clamp(2.6rem,5vw,3.6rem)}
+    .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
+    footer .mark{font-family:"Fraunces",serif;font-weight:600;font-size:1.3rem;color:var(--on-dark)}
+    footer .desc{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted);margin-top:.5rem}
+    .foot-col a{display:block;color:var(--on-dark-muted);text-decoration:none;font-size:.95rem;margin-bottom:.5rem}
+    .foot-col a:hover{color:var(--on-dark)}
+    .foot-col .h{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#CC9C54;margin-bottom:.9rem}
+    .copy{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(238,229,212,.14);font-size:.82rem;color:var(--on-dark-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+
+    @media(max-width:760px){
+      .briefs{grid-template-columns:1fr}
+      .navlinks{position:fixed;inset:78px 0 auto 0;flex-direction:column;align-items:flex-start;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem var(--pad) 1.4rem;transform:translateY(-135%);transition:transform .35s;z-index:40}
+      .navlinks.open{transform:translateY(0)}.navlinks a{padding:.85rem 0;width:100%;border-bottom:1px solid var(--line)}.navlinks .btn{margin-top:1rem}
+      .menu-toggle{display:block}
+    }
+  </style>
+</head>
+<body>
+  <header id="hdr">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><span class="mark">Eric McLean</span><span class="sub">TCEL · Strategy &amp; Transformation</span></a>
+      <button class="menu-toggle" id="menuBtn" aria-label="Menu">Menu</button>
+      <nav class="navlinks" id="navlinks">
+        <a href="index.html#approach">Approach</a>
+        <a href="index.html#about">About</a>
+        <a href="insights.html" class="active">Insights</a>
+        <a href="index.html#faq">FAQ</a>
+        <a class="btn" href="index.html#book">Book a conversation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="phead">
+      <div class="wrap">
+        <span class="label">Insights · The Landscape</span>
+        <h1>Briefs on the questions leaders actually ask.</h1>
+        <p>Short, opinionated pieces on strategy, AI, leadership and growth, grounded in forty years of running businesses and built in the Gulf. Written to be useful to a busy CEO, and clear enough that an AI can quote them straight.</p>
+        <span class="cadence"><i class="dot"></i>A new brief every fortnight</span>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <!-- FEATURED -->
+      <a class="feature" href="#">
+        <span class="tag">Strategy · Latest</span>
+        <h2>Why do most group strategies quietly die by March?</h2>
+        <p>Because they are written as documents, not built as operating disciplines. The fix is not a better plan. It is a shorter one that every business owns, wired into a quarterly rhythm that actually enforces it.</p>
+        <div class="bmeta">Feb 2026 · 6 min read</div>
+      </a>
+
+      <!-- STRATEGY -->
+      <div class="theme-head"><h2>Strategy</h2><span class="cnt">3 briefs</span></div>
+      <div class="briefs">
+        <a class="brief" href="#"><span class="tag">Strategy</span><h3>Does a multi-business group need OGSM or a Balanced Scorecard?</h3><p>Both, doing different jobs. OGSM sets and cascades the strategy. The scorecard measures whether it is working. Treat them as one system, not rival frameworks.</p><div class="bmeta">Jan 2026 · 5 min</div></a>
+        <a class="brief" href="#"><span class="tag">Strategy</span><h3>How do you set one strategy across very different businesses?</h3><p>You do not standardise the businesses. You standardise the questions. A shared strategy logic lets a bank, a retailer and a contractor each answer the same four questions in their own language.</p><div class="bmeta">Jan 2026 · 7 min</div></a>
+        <a class="brief" href="#"><span class="tag">Strategy</span><h3>When should a family group bring in an outside strategist?</h3><p>When the honest conversation can no longer happen inside the room. An outsider's value is rarely the framework. It is the permission to say what everyone already knows.</p><div class="bmeta">Dec 2025 · 4 min</div></a>
+      </div>
+
+      <!-- AI -->
+      <div class="theme-head"><h2>AI implementation</h2><span class="cnt">2 briefs</span></div>
+      <div class="briefs">
+        <a class="brief" href="#"><span class="tag">AI</span><h3>Where should a traditional group actually start with AI?</h3><p>Not with a tool. With the two or three decisions that are slow, costly or inconsistent today. Fix the decision, then ask whether AI helps, not the other way round.</p><div class="bmeta">Feb 2026 · 6 min</div></a>
+        <a class="brief" href="#"><span class="tag">AI</span><h3>What does AI change for a family business, and what does it not?</h3><p>It changes the cost of analysis, drafting and routine judgement. It does not change strategy, trust, or the hard work of getting people to act. Most disappointment comes from confusing the two.</p><div class="bmeta">Jan 2026 · 5 min</div></a>
+      </div>
+
+      <!-- LEADERSHIP -->
+      <div class="theme-head"><h2>Leadership</h2><span class="cnt">2 briefs</span></div>
+      <div class="briefs">
+        <a class="brief" href="#"><span class="tag">Leadership</span><h3>How do you lead a business you have just been parachuted into?</h3><p>Earn the right to change things before you change them. The first ninety days are for listening hard and finding the one or two truths everyone knows but no one will say.</p><div class="bmeta">Jan 2026 · 6 min</div></a>
+        <a class="brief" href="#"><span class="tag">Leadership</span><h3>What does a group CEO owe the owning family?</h3><p>Candour, and a clear separation of roles. The family owns and sets the appetite. The CEO runs the business to it. Most family-business friction is a blurred line, not a bad relationship.</p><div class="bmeta">Dec 2025 · 5 min</div></a>
+      </div>
+
+      <!-- SME & GROWTH -->
+      <div class="theme-head"><h2>SME &amp; growth</h2><span class="cnt">2 briefs</span></div>
+      <div class="briefs">
+        <a class="brief" href="#"><span class="tag">SME</span><h3>Why does growth stall at the same size for so many firms?</h3><p>Because the founder's instinct stops scaling before the business does. Past a point, what got you here is exactly what holds you back. The systems run out, not the ambition.</p><div class="bmeta">Jan 2026 · 5 min</div></a>
+        <a class="brief" href="#"><span class="tag">SME</span><h3>What separates an SME that scales from one that plateaus?</h3><p>A willingness to professionalise before it feels necessary. The ones that scale build the boring infrastructure, governance, data and delegation, a year too early, not a year too late.</p><div class="bmeta">Dec 2025 · 6 min</div></a>
+      </div>
+
+      <!-- GULF -->
+      <div class="theme-head"><h2>The Gulf</h2><span class="cnt">1 brief</span></div>
+      <div class="briefs">
+        <a class="brief" href="#"><span class="tag">Gulf</span><h3>What does real Qatarisation look like beyond the quota?</h3><p>A capability pipeline, not a headcount target. The programmes that last build genuine skills and succession, so nationals run the business because they can, not because the rule says so.</p><div class="bmeta">Jan 2026 · 6 min</div></a>
+        <a class="brief" href="#" style="opacity:.55"><span class="tag">Gulf · Coming soon</span><h3>How should Gulf groups think about diversification now?</h3><p>In progress.</p><div class="bmeta">Draft</div></a>
+      </div>
+
+      <!-- SUBSCRIBE -->
+      <div class="subscribe">
+        <span class="label">Stay in the loop</span>
+        <h2>The briefs go out every fortnight.</h2>
+        <p>One considered piece on strategy, AI and leadership. No noise, unsubscribe anytime.</p>
+        <form class="subform" onsubmit="return false">
+          <input type="email" placeholder="you@company.com" aria-label="Email address" />
+          <button type="submit">Subscribe</button>
+        </form>
+        <div class="fine">Connects to your newsletter platform once set up.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div><div class="mark">Eric McLean</div><div class="desc">TCEL · The Consulting &amp; Education Link</div></div>
+        <div class="foot-col"><div class="h">Practice</div><a href="index.html#approach">Approach</a><a href="index.html#about">About Eric</a><a href="insights.html">Insights</a><a href="index.html#faq">FAQ</a></div>
+        <div class="foot-col"><div class="h">Contact</div><a href="index.html#book">Book a conversation</a><a href="tel:+35799920089">+357 99 920 089</a><a href="mailto:eric@tcel.com">eric@tcel.com</a></div>
+      </div>
+      <div class="copy"><span>© 2026 Eric McLean · TCEL. Nicosia, Cyprus.</span><span>Strategy · Transformation · Capability</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const hdr=document.getElementById('hdr');
+    addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>12),{passive:true});
+    const btn=document.getElementById('menuBtn'),nav=document.getElementById('navlinks');
+    btn.addEventListener('click',()=>nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+  </script>
+</body>
+</html>

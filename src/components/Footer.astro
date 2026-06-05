@@ -1,0 +1,52 @@
+---
+// Site footer, reused on every page. Practice links resolve to the homepage
+// sections; Insights is site-wide. Contact details and the booking link are
+// placeholders to confirm (see src/consts.ts).
+import { CAL_URL, CONTACT_EMAIL, PHONE_DISPLAY, PHONE_HREF } from '../consts';
+---
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="mark">Eric McLean</div><div class="desc">TCEL · The Consulting &amp; Education Link</div></div>
+      <div class="foot-col">
+        <div class="h">Practice</div>
+        <a href="/#approach">Approach</a>
+        <a href="/#about">About Eric</a>
+        <a href="/insights">Insights</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <div class="h">Contact</div>
+        <!-- TODO(booking): Cal.com placeholder link -->
+        <a href={CAL_URL} target="_blank" rel="noopener">Book a conversation</a>
+        <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 Eric McLean · TCEL. Nicosia, Cyprus.</span><span>Strategy · Transformation · Capability</span></div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll border + mobile menu toggle. Shared site-wide.
+  const hdr = document.getElementById('hdr');
+  if (hdr) {
+    addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 12), { passive: true });
+  }
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('navlinks');
+  if (btn && nav) {
+    btn.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => nav.classList.remove('open')));
+  }
+  // Scroll reveal. Purely additive: elements are visible by default and only
+  // animate when the user allows motion. Guarded so a failure never hides content.
+  if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const io = new IntersectionObserver(
+      (es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
+      { threshold: 0.15 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  }
+</script>

@@ -1,0 +1,44 @@
+# TCEL / Eric McLean. All crawlers welcome, including AI answer engines.
+# Findability by AI answer engines is the primary goal of this site.
+
+User-agent: *
+Allow: /
+
+# AI crawlers, named explicitly so intent is unambiguous.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://www.tcel.com/sitemap-index.xml

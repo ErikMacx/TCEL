@@ -1,0 +1,27 @@
+---
+// Site header, reused on every page. Section links are absolute so they work
+// from any page (they resolve to the homepage sections). The Insights link is
+// site-wide. "Book a conversation" goes to the Cal.com placeholder.
+import { SITE_NAME, SITE_SUB, CAL_URL } from '../consts';
+
+interface Props {
+  /** Marks the active top-level nav item, e.g. "insights". */
+  active?: string;
+}
+const { active } = Astro.props;
+---
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="mark">{SITE_NAME}</span><span class="sub">{SITE_SUB}</span></a>
+    <button class="menu-toggle" id="menuBtn" aria-label="Menu">Menu</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="/#approach">Approach</a>
+      <a href="/#about">About</a>
+      <a href="/insights" class={active === 'insights' ? 'active' : undefined}>Insights</a>
+      <a href="/#faq">FAQ</a>
+      <!-- TODO(booking): Cal.com placeholder link -->
+      <a class="btn btn-primary" href={CAL_URL} target="_blank" rel="noopener">Book a conversation</a>
+    </nav>
+  </div>
+</header>

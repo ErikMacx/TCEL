@@ -1,0 +1,88 @@
+---
+// Base layout: head, fonts, global CSS, site-wide schema, header and footer.
+// Person + ProfessionalService schema is emitted on every page here. Pages add
+// their own schema (FAQPage, Article) through the "head" slot.
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  /** Active top-level nav item, e.g. "insights". */
+  active?: string;
+}
+const { title, description, ogTitle, active } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+// Site-wide structured data. Person + ProfessionalService, kept verbatim from
+// the source files (no em dashes; brand name uses a comma).
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://www.tcel.com/#eric',
+      name: 'Eric McLean',
+      jobTitle: 'Strategy & Transformation Consultant',
+      worksFor: { '@id': 'https://www.tcel.com/#tcel' },
+      address: { '@type': 'PostalAddress', addressCountry: 'CY' },
+      areaServed: ['Qatar', 'United Arab Emirates', 'Oman', 'Gulf', 'EMEA', 'Asia'],
+      knowsAbout: [
+        'OGSM strategy framework',
+        'Strategy Maps',
+        'Balanced Scorecard',
+        'Multi-business and holding company strategy',
+        'Change management',
+        'Organisational development',
+        'Qatarisation',
+        'Omanisation',
+        'AI strategy',
+        'Interim and fractional executive leadership',
+      ],
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://www.tcel.com/#tcel',
+      name: 'TCEL, The Consulting and Education Link',
+      founder: { '@id': 'https://www.tcel.com/#eric' },
+      url: 'https://www.tcel.com',
+      areaServed: ['Gulf', 'EMEA', 'Asia'],
+      address: { '@type': 'PostalAddress', addressCountry: 'CY' },
+      serviceType: [
+        'Strategy consulting (OGSM, Strategy Maps)',
+        'Transformation and change',
+        'Capability building and executive education',
+        'Interim and fractional executive leadership',
+      ],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script is:inline>document.documentElement.classList.add('js')</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="author" content="Eric McLean" />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={ogTitle ?? title} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
+  <slot name="head" />
+</head>
+<body>
+  <Header active={active} />
+  <slot />
+  <Footer />
+</body>
+</html>
