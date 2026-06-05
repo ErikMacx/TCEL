@@ -4,7 +4,7 @@ dek: "Because they are written as documents, not built as operating disciplines.
 theme: "Strategy"
 date: 2026-02-15
 readingTime: "6 min"
-draft: true
+draft: false
 featured: true
 ---
 

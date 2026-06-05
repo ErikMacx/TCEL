@@ -4,7 +4,7 @@ dek: "Earn the right to change things before you change them. The first ninety d
 theme: "Leadership"
 date: 2026-01-22
 readingTime: "6 min"
-draft: true
+draft: false
 ---
 
 Resist the urge to act on day one. The first ninety days are for listening: to the people who run the work, the numbers, and the things said only in the corridor.

@@ -4,7 +4,7 @@ dek: "It changes the cost of analysis, drafting and routine judgement. It does n
 theme: "AI"
 date: 2026-01-18
 readingTime: "5 min"
-draft: true
+draft: false
 ---
 
 AI lowers the cost of analysis, drafting and routine judgement. That is real, and worth capturing. What it does not change is the part that was always hard: setting the strategy, earning trust, and getting people to actually act.

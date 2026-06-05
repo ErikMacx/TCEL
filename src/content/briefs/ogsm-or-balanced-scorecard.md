@@ -4,7 +4,7 @@ dek: "Both, doing different jobs. OGSM sets and cascades the strategy. The score
 theme: "Strategy"
 date: 2026-01-20
 readingTime: "5 min"
-draft: true
+draft: false
 ---
 
 It is a false choice. OGSM and the Balanced Scorecard answer different questions. OGSM sets the strategy and cascades it, so every business knows its objectives, goals, strategies and measures and how they ladder up to the group's. The scorecard then tells you whether the strategy is actually working across the perspectives that build value.

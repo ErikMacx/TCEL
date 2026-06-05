@@ -4,7 +4,7 @@ dek: "A capability pipeline, not a headcount target. The programmes that last bu
 theme: "Gulf"
 date: 2026-01-08
 readingTime: "6 min"
-draft: true
+draft: false
 ---
 
 A headcount target is the easy part and the least durable. Real Qatarisation is a capability pipeline: structured development, real responsibility, and succession planned years out.

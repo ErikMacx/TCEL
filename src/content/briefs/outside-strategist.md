@@ -4,7 +4,7 @@ dek: "When the honest conversation can no longer happen inside the room. An outs
 theme: "Strategy"
 date: 2025-12-10
 readingTime: "4 min"
-draft: true
+draft: false
 ---
 
 The trigger is not complexity. It is candour. Most family groups already know the two or three things holding them back. What they lack is a way to say them out loud without it becoming personal.

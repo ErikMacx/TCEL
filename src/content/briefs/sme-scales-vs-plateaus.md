@@ -4,7 +4,7 @@ dek: "A willingness to professionalise before it feels necessary. The ones that 
 theme: "SME"
 date: 2025-12-05
 readingTime: "6 min"
-draft: true
+draft: false
 ---
 
 The firms that scale professionalise before it feels necessary. They put in governance, data and delegation while they could still get away without it, so the infrastructure is ready when the volume arrives.

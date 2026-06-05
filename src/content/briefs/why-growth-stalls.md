@@ -4,7 +4,7 @@ dek: "Because the founder's instinct stops scaling before the business does. Pas
 theme: "SME"
 date: 2026-01-12
 readingTime: "5 min"
-draft: true
+draft: false
 ---
 
 Growth stalls where the founder's instinct runs out, not where the ambition does. The judgement and personal reach that built the business stop scaling well before the business is finished growing.
