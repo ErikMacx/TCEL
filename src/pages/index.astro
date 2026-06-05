@@ -110,7 +110,7 @@ const faqSchema = {
       <div class="wrap">
         <div class="sec-head"><span class="label">About</span><h2>A senior operator, not a junior consultant.</h2></div>
         <div class="about-grid">
-          <div class="portrait reveal"><div class="ph">EM</div><div class="cap">Eric McLean · Founder, TCEL</div></div>
+          <div class="portrait reveal"><img src="/assets/eric-mclean.png" alt="Eric McLean, Founder of TCEL" loading="lazy" /><div class="cap">Eric McLean · Founder, TCEL</div></div>
           <div class="body reveal">
             <p>Forty years running operations, growth and change across multinational businesses in <b>finance, technology and telecommunications</b>. I have worked on the ground in Qatar, the UAE and Oman, and delivered Qatarisation and Omanisation programmes, so building capability in the region is not theory to me.</p>
             <p>I work alongside the <b>CEO carrying the group</b>, as a peer who has actually run businesses, and as a neutral outsider with no stake in internal politics. Based in Cyprus: EU, English speaking and discreet, a natural bridge to the Gulf, EMEA and Asia.</p>
@@ -221,6 +221,7 @@ const faqSchema = {
   .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
   .portrait{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:radial-gradient(120% 100% at 50% 0%,var(--bg-2),var(--bg));overflow:hidden}
   .portrait::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 13px,rgba(166,113,43,.06) 13px 14px)}
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .portrait .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:4.4rem;color:var(--line)}
   .portrait .cap{position:absolute;bottom:0;left:0;z-index:1;padding:1.05rem 1.2rem;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
   .about-grid .body p{color:var(--ink-soft);margin-bottom:1.1rem;max-width:54ch}
