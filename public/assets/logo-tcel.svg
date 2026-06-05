@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none">
+  <!-- T C E L letterforms with a gold accent bar -->
+  <rect x="0" y="0" width="200" height="3" rx="1" fill="#A6712B"/>
+  <text x="0" y="38" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="36" letter-spacing="8" fill="#1A1611">TCEL</text>
+  <rect x="0" y="45" width="200" height="3" rx="1" fill="#A6712B"/>
+</svg>

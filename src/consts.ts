@@ -2,8 +2,8 @@
 // Each placeholder below is wired through the components so there is a single
 // place to update once the real accounts exist.
 
-export const SITE_NAME = 'Eric McLean';
-export const SITE_SUB = 'TCEL · Strategy & Transformation';
+export const SITE_NAME = 'TCEL';
+export const SITE_SUB = 'The Consultancy Execution Leader';
 
 export const CAL_URL = 'https://cal.eu/eric-mclean-ulhmrt';
 

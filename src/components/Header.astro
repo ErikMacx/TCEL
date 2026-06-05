@@ -13,7 +13,12 @@ const { active } = Astro.props;
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="/"><span class="mark">{SITE_NAME}</span><span class="sub">{SITE_SUB}</span></a>
+    <a class="brand" href="/">
+      <span class="logo-bar"></span>
+      <span class="mark">{SITE_NAME}</span>
+      <span class="sub">{SITE_SUB}</span>
+      <span class="logo-bar"></span>
+    </a>
     <button class="menu-toggle" id="menuBtn" aria-label="Menu">Menu</button>
     <nav class="navlinks" id="navlinks">
       <a href="/#approach">Approach</a>
