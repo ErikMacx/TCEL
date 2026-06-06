@@ -43,7 +43,8 @@ The Astro pages must match them.
 
 ## Open items to confirm
 
-Headshot (into `public/assets/`), contact email (`eric@tcel.com` is a guess),
-Cal.com booking URL, header direction, and the Cyprus location/phone in the
-footer (Eric has since moved). Placeholders are marked with `TODO(...)` and
-collected in `src/consts.ts`.
+Confirmed and live: headshot, contact email (`eric@tcel.com`), Cal.com booking
+URL, the name (The Consultancy Execution Leader), and the dual location (Cyprus
+and Edinburgh, UK). Still open: the footer phone (Cyprus number, eSIM to come)
+and the newsletter platform. Remaining placeholders are marked with `TODO(...)`
+in `src/consts.ts`.

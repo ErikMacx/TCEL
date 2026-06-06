@@ -65,5 +65,5 @@ optional `featured` and `comingSoon`. The hub groups briefs by theme, newest fir
 
 ## To confirm
 
-Headshot, contact email, Cal.com booking URL, header direction, and the footer
-location/phone. See `TODO(...)` markers and `src/consts.ts`.
+Still open: the footer phone (eSIM to come) and the newsletter platform. See the
+remaining `TODO(...)` markers in `src/consts.ts`.

@@ -7,7 +7,6 @@ export const SITE_SUB = 'The Consultancy Execution Leader';
 
 export const CAL_URL = 'https://cal.eu/eric-mclean-ulhmrt';
 
-// TODO(contact): confirm the real address. eric@tcel.com is currently a guess.
 export const CONTACT_EMAIL = 'eric@tcel.com';
 
 // TODO(contact): confirm current phone. Source carries the Cyprus number.
