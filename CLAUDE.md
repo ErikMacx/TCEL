@@ -6,7 +6,7 @@ projects when working here.
 
 ## Who
 
-Eric McLean (TCEL, The Consulting and Education Link) is a senior strategy and
+Eric McLean (TCEL, The Consultancy Execution Leader) is a senior strategy and
 transformation consultant for the CEOs of complex, multi-business groups in the
 Gulf and EMEA. Voice on the site is "we". Buyer is the group CEO.
 

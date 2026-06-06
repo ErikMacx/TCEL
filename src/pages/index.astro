@@ -74,6 +74,24 @@ const faqSchema = {
       </div>
     </section>
 
+    <section id="focus" class="focus">
+      <div class="wrap">
+        <div class="sec-head"><span class="label">Where we go deep</span><h2>Two words you have heard. Rarely from someone offering to deliver them.</h2></div>
+        <div class="focus-grid reveal">
+          <div class="fbox">
+            <span class="fk">Execution</span>
+            <h3>Strategy that survives contact with the quarter.</h3>
+            <p>Most plans are sound and still stall by March. We build the governance, operating rhythm and accountability that turn decisions into delivered results. You have been sold strategy, and sold tools. You have rarely been sold the <b>discipline that makes either one pay off</b>.</p>
+          </div>
+          <div class="fbox">
+            <span class="fk">Operational Excellence</span>
+            <h3>A core that runs better every quarter, not just bigger.</h3>
+            <p>Growth hides waste. We sharpen the engine of the group: clearer processes, tighter procurement, real grip on cost and quality, and a standard your people can hold without us in the room. Not a one-off cut, but <b>a way of working the whole portfolio is measured against</b>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="approach">
       <div class="wrap">
         <div class="sec-head"><span class="label">Approach</span><h2>Three jobs, one arc.</h2></div>
@@ -184,7 +202,7 @@ const faqSchema = {
   .hero .meta{margin-top:2.2rem;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1.1rem}
   .hero .meta span{display:inline-flex;align-items:center;gap:.5rem}
 
-  .pain-panel{background:linear-gradient(180deg,#FCF8EF,#F5EFE2);border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.7rem 1.1rem;box-shadow:0 34px 64px -42px rgba(70,46,12,.4)}
+  .pain-panel{background:linear-gradient(180deg,#FFF7F0,#FBE7D8);border:1px solid var(--line);border-radius:3px;padding:1.5rem 1.7rem 1.1rem;box-shadow:0 34px 64px -42px rgba(70,46,12,.4)}
   .pain-panel .ptop{font-family:"Fraunces",serif;font-style:italic;font-size:1.18rem;color:var(--ink);padding-bottom:.95rem;border-bottom:1px solid var(--line)}
   .pain{display:flex;gap:.85rem;align-items:flex-start;padding:.82rem 0;border-bottom:1px dashed var(--line)}
   .pain:last-child{border-bottom:0}
@@ -205,6 +223,13 @@ const faqSchema = {
   .prize h2{font-size:clamp(2rem,1.4rem + 2.2vw,3.2rem);line-height:1.08;max-width:26ch;margin-inline:auto}
   .prize p{margin-top:1.2rem;color:var(--ink-soft);font-size:clamp(1.05rem,1rem + .35vw,1.2rem);max-width:48ch;margin-inline:auto}
 
+  .focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem)}
+  .fbox{background:linear-gradient(180deg,#FFF7F0,#FBE7D8);border:1px solid var(--line);border-top:2px solid var(--accent);border-radius:3px;padding:clamp(1.6rem,3vw,2.4rem);box-shadow:0 34px 64px -46px rgba(70,46,12,.4)}
+  .fbox .fk{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);display:block;margin-bottom:1rem}
+  .fbox h3{font-size:clamp(1.35rem,1.1rem + .8vw,1.7rem);line-height:1.15;margin-bottom:.85rem}
+  .fbox p{color:var(--ink-soft);font-size:1.02rem;line-height:1.5}
+  .fbox p b{color:var(--ink);font-weight:600}
+
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
   .pillar{padding:2.1rem 1.8rem 2.4rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
   .pillar:nth-child(3n){border-right:0}
@@ -215,7 +240,7 @@ const faqSchema = {
   .toolkit{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.5rem}
   .toolkit .tk-label{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
   .tk-grid{display:flex;flex-wrap:wrap;gap:.65rem}
-  .tk{font-size:.9rem;color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:.5rem .9rem;background:var(--bg);display:inline-flex;align-items:center;gap:.55rem}
+  .tk{font-size:.9rem;color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:.5rem .9rem;background:#FFF8F2;display:inline-flex;align-items:center;gap:.55rem}
   .tk i{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
 
   .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
@@ -261,5 +286,6 @@ const faqSchema = {
     .about-grid{grid-template-columns:1fr}.portrait{max-width:340px;aspect-ratio:4/4.6}
     .diffs{grid-template-columns:1fr}
   }
+  @media(max-width:760px){.focus-grid{grid-template-columns:1fr}}
   @media(max-width:720px){.creds{grid-template-columns:1fr}}
 </style>

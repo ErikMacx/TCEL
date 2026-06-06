@@ -1,6 +1,6 @@
 # Eric McLean / TCEL website
 
-Marketing site for Eric McLean (TCEL, The Consulting and Education Link): strategy
+Marketing site for Eric McLean (TCEL, The Consultancy Execution Leader): strategy
 and transformation for the CEOs of complex, multi-business groups in the Gulf and
 EMEA. Built for findability by AI answer engines: clean static HTML, answer-first
 content, structured data, and a crawlable, well-mapped site.

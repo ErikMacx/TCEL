@@ -101,7 +101,7 @@ const monthYear = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', y
 <style is:global>
   /* Insights-specific layout, extracted verbatim from insights.html. */
   /* Per-page base overrides to match the source insights page exactly. */
-  body{background:radial-gradient(120% 70% at 72% -10%,#FBF6EA 0%,var(--bg) 50%) no-repeat,var(--bg)}
+  body{background:radial-gradient(120% 70% at 72% -10%,#FFF8F1 0%,var(--bg) 50%) no-repeat,var(--bg)}
   h1,h2,h3{line-height:1.07}
   .dot{width:5px;height:5px}
 
@@ -111,7 +111,7 @@ const monthYear = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', y
   .phead p{max-width:56ch;font-size:clamp(1.08rem,1rem + .4vw,1.26rem);color:var(--ink-soft)}
   .phead .cadence{margin-top:1.4rem;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:.55rem}
 
-  .feature{display:block;text-decoration:none;border:1px solid var(--line);border-radius:3px;background:linear-gradient(180deg,#FCF8EF,#F5EFE2);padding:clamp(1.6rem,4vw,2.4rem);box-shadow:0 30px 60px -44px rgba(70,46,12,.38);transition:transform .25s,box-shadow .25s;margin-bottom:clamp(2.4rem,5vw,3.4rem)}
+  .feature{display:block;text-decoration:none;border:1px solid var(--line);border-radius:3px;background:linear-gradient(180deg,#FFF7F0,#FBE7D8);padding:clamp(1.6rem,4vw,2.4rem);box-shadow:0 30px 60px -44px rgba(70,46,12,.38);transition:transform .25s,box-shadow .25s;margin-bottom:clamp(2.4rem,5vw,3.4rem)}
   .feature:hover{transform:translateY(-3px);box-shadow:0 40px 70px -44px rgba(70,46,12,.5)}
   .feature .tag{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep)}
   .feature h2{font-size:clamp(1.7rem,1.3rem + 1.8vw,2.6rem);max-width:22ch;margin:.9rem 0 .9rem}
@@ -123,7 +123,7 @@ const monthYear = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', y
   .theme-head .cnt{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   .briefs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-top:0}
   .brief{background:var(--bg);padding:1.5rem 1.6rem 1.55rem;display:flex;flex-direction:column;gap:.65rem;text-decoration:none;transition:background .2s}
-  .brief:hover{background:#FBF6EA}
+  .brief:hover{background:#FFF7F0}
   .brief .tag{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep)}
   .brief h3{font-size:1.3rem;line-height:1.16}
   .brief p{font-size:.98rem;color:var(--ink-soft);line-height:1.45;flex:1}

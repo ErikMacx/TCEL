@@ -7,10 +7,11 @@
    Do not introduce em dashes anywhere.
    ------------------------------------------------------------------ */
 
-:root{--bg:#F4EEE2;--bg-2:#ECE4D3;--ink:#1A1611;--ink-soft:#3A332A;--muted:#736A5C;--line:#DBD1BF;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#8A7A6E;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+/* Palette: FT "Pink Sheet" salmon background (#FFF1E5), dark ink, bronze accent. */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:radial-gradient(120% 80% at 72% -8%,#FBF6EA 0%,var(--bg) 52%) no-repeat,var(--bg);color:var(--ink);font-family:"Hanken Grotesk",-apple-system,sans-serif;font-size:clamp(1rem,0.96rem + 0.2vw,1.12rem);line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body{background:radial-gradient(120% 80% at 72% -8%,#FFF8F1 0%,var(--bg) 55%) no-repeat,var(--bg);color:var(--ink);font-family:"Hanken Grotesk",-apple-system,sans-serif;font-size:clamp(1rem,0.96rem + 0.2vw,1.12rem);line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E")}
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
 h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.015em;color:var(--ink)}

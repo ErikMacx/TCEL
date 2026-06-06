@@ -27,7 +27,10 @@ const siteSchema = {
       name: 'Eric McLean',
       jobTitle: 'Strategy & Transformation Consultant',
       worksFor: { '@id': 'https://www.tcel.com/#tcel' },
-      address: { '@type': 'PostalAddress', addressCountry: 'CY' },
+      address: [
+        { '@type': 'PostalAddress', addressLocality: 'Nicosia', addressCountry: 'CY' },
+        { '@type': 'PostalAddress', addressLocality: 'Edinburgh', addressCountry: 'GB' },
+      ],
       areaServed: ['Qatar', 'United Arab Emirates', 'Oman', 'Gulf', 'EMEA', 'Asia'],
       knowsAbout: [
         'OGSM strategy framework',
@@ -45,11 +48,14 @@ const siteSchema = {
     {
       '@type': 'ProfessionalService',
       '@id': 'https://www.tcel.com/#tcel',
-      name: 'TCEL, The Consulting and Education Link',
+      name: 'TCEL, The Consultancy Execution Leader',
       founder: { '@id': 'https://www.tcel.com/#eric' },
       url: 'https://www.tcel.com',
       areaServed: ['Gulf', 'EMEA', 'Asia'],
-      address: { '@type': 'PostalAddress', addressCountry: 'CY' },
+      address: [
+        { '@type': 'PostalAddress', addressLocality: 'Nicosia', addressCountry: 'CY' },
+        { '@type': 'PostalAddress', addressLocality: 'Edinburgh', addressCountry: 'GB' },
+      ],
       serviceType: [
         'Strategy consulting (OGSM, Strategy Maps)',
         'Transformation and change',
