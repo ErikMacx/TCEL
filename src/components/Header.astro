@@ -2,7 +2,7 @@
 // Site header, reused on every page. Section links are absolute so they work
 // from any page (they resolve to the homepage sections). The Insights link is
 // site-wide. "Book a conversation" goes to the Cal.com placeholder.
-import { SITE_NAME, SITE_SUB, CAL_URL } from '../consts';
+import { SITE_SUB, CAL_URL } from '../consts';
 
 interface Props {
   /** Marks the active top-level nav item, e.g. "insights". */
@@ -13,11 +13,9 @@ const { active } = Astro.props;
 
 <header id="hdr">
   <div class="wrap nav">
-    <a class="brand" href="/">
-      <span class="logo-bar"></span>
-      <span class="mark">{SITE_NAME}</span>
+    <a class="brand" href="/" aria-label={`TCEL, ${SITE_SUB}`}>
+      <img class="logo" src="/assets/logo-t.svg" alt="TCEL" width="44" height="44" />
       <span class="sub">{SITE_SUB}</span>
-      <span class="logo-bar"></span>
     </a>
     <button class="menu-toggle" id="menuBtn" aria-label="Menu">Menu</button>
     <nav class="navlinks" id="navlinks">

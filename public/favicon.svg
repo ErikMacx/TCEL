@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="TCEL">
+  <!-- Favicon: cream serif T on an ink tile with a fine bronze keyline.
+       Reads on both light and dark browser tab bars. -->
+  <rect x="1.5" y="1.5" width="97" height="97" rx="20" fill="#1A1611" stroke="#A6712B" stroke-width="3"/>
+  <g transform="translate(13 13) scale(0.74)">
+    <path fill="#FBF6EE" fill-rule="evenodd" d="M12 16 L88 16 L88 33 L82 33 Q82 25 74 25 L26 25 Q18 25 18 33 L12 33 Z M44 16 L56 16 L56 70 Q56 78 68 78 L68 84 L32 84 L32 78 Q44 78 44 70 Z"/>
+  </g>
+</svg>
