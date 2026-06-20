@@ -35,8 +35,10 @@ header.scrolled{border-color:var(--line)}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:.5rem;font-family:"Hanken Grotesk",sans-serif;font-weight:600;font-size:.92rem;text-decoration:none;padding:.72rem 1.25rem;border-radius:2px;transition:transform .2s,background .2s,box-shadow .2s,border-color .2s;cursor:pointer;border:1px solid var(--accent)}
-.btn-primary{background:var(--accent);color:#241a0c}
-.btn-primary:hover{background:#956322;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(120,80,10,.6)}
+/* Filled CTA uses the deeper bronze with a cream label for WCAG AA/AAA contrast
+   (~6.8:1, vs ~4.1:1 for the old dark-text-on-light-bronze). */
+.btn-primary{background:var(--accent-deep);color:#FBF6EE;border-color:var(--accent-deep)}
+.btn-primary:hover{background:#6A4509;border-color:#6A4509;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(120,80,10,.6)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
 .menu-toggle{display:none;background:none;border:0;font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer}
