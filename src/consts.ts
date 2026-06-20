@@ -13,5 +13,6 @@ export const CONTACT_EMAIL = 'eric@tcel.com';
 export const PHONE_DISPLAY = '+357 99 920 089';
 export const PHONE_HREF = 'tel:+35799920089';
 
-// TODO(newsletter): connect to the chosen platform (Beehiiv, Kit or MailerLite).
-export const NEWSLETTER_ACTION = '#';
+// Newsletter signup hands off to the beehiiv hosted subscribe page (free plan).
+// Goes live once the beehiiv publication is launched. Verify the path returns 200.
+export const NEWSLETTER_ACTION = 'https://erics-newsletter-7ef56a.beehiiv.com/subscribe';

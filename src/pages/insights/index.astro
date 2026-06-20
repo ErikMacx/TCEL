@@ -87,12 +87,11 @@ const monthYear = (d: Date) => d.toLocaleDateString('en-GB', { month: 'short', y
         <span class="label">Stay in the loop</span>
         <h2>The briefs go out every fortnight.</h2>
         <p>One considered piece on strategy, AI and leadership. No noise, unsubscribe anytime.</p>
-        <!-- TODO(newsletter): connect to the chosen platform (Beehiiv, Kit or MailerLite). -->
-        <form class="subform" action={NEWSLETTER_ACTION} method="post" onsubmit="return false">
-          <input type="email" placeholder="you@company.com" aria-label="Email address" />
+        <form class="subform" action={NEWSLETTER_ACTION} method="get" target="_blank" rel="noopener">
+          <input type="email" name="email" placeholder="you@company.com" aria-label="Email address" />
           <button type="submit">Subscribe</button>
         </form>
-        <div class="fine">Connects to your newsletter platform once set up.</div>
+        <div class="fine">Opens our beehiiv signup to confirm. Unsubscribe anytime.</div>
       </div>
     </section>
   </main>
