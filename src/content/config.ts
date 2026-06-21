@@ -18,4 +18,17 @@ const briefs = defineCollection({
   }),
 });
 
-export const collections = { briefs };
+// AI white papers. The open "body of knowledge" linked from the Feasibility
+// page. Answer-first, em-dash-free. Routed at /ai/papers/<slug> by front-matter
+// slug, ordered by `order`.
+const papers = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/papers' }),
+  schema: z.object({
+    title: z.string(),
+    slug: z.string(),
+    summary: z.string(),
+    order: z.number(),
+  }),
+});
+
+export const collections = { briefs, papers };

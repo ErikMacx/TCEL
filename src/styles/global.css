@@ -7,7 +7,7 @@
    Do not introduce em dashes anywhere.
    ------------------------------------------------------------------ */
 
-:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#8A7A6E;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#8A7A6E;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--gold:#CC9C54;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
 /* Palette: FT "Pink Sheet" salmon background (#FFF1E5), dark ink, bronze accent. */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
