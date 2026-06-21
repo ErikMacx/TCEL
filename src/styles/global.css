@@ -7,7 +7,7 @@
    Do not introduce em dashes anywhere.
    ------------------------------------------------------------------ */
 
-:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#8A7A6E;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--gold:#CC9C54;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#6A5B4E;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--gold:#CC9C54;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
 /* Palette: FT "Pink Sheet" salmon background (#FFF1E5), dark ink, bronze accent. */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -16,7 +16,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;op
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
 h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.015em;color:var(--ink)}
 a{color:inherit}
-.label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
+.label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
 .dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}
 
 /* header + nav */
