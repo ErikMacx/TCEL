@@ -1,0 +1,23 @@
+{
+  // Cloudflare Worker for the TCEL site (the project that serves tcel.com).
+  // It serves the static Astro build in dist/ via the ASSETS binding and handles
+  // the one server route, POST /api/diagnostic, in worker/index.js.
+  //
+  // This replaces the config the Cloudflare autoconfig bot was injecting at build
+  // time, so deploys are deterministic. Deployed by the dashboard build command:
+  //   npx wrangler versions upload
+  "name": "tcel-strategy",
+  "compatibility_date": "2026-06-21",
+  "main": "worker/index.js",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  }
+  // Per-IP daily cap for the diagnostic is optional. To enable it, create a KV
+  // namespace and bind it as RL here (the function skips the cap when unbound):
+  // "kv_namespaces": [{ "binding": "RL", "id": "<your-kv-namespace-id>" }]
+  //
+  // Secrets ANTHROPIC_API_KEY (required) and TURNSTILE_SECRET (optional) are set
+  // in the dashboard (Settings > Variables and Secrets) as encrypted Secrets;
+  // they persist across deploys and are not listed here.
+}
