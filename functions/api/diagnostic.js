@@ -96,6 +96,16 @@ export async function onRequestPost({ request, env }) {
       await env.RL.put(key, String(used + 1), { expirationTtl: 60 * 60 * 24 });
     }
 
+    // Misconfiguration is the most common cause of failure: say so plainly
+    // rather than pretending the service is "busy".
+    if (!env.ANTHROPIC_API_KEY) {
+      console.error("diagnostic: ANTHROPIC_API_KEY is not set on the Worker");
+      return json(
+        { error: "The diagnostic is not switched on yet. Please book a conversation, and we will run it with you." },
+        503,
+      );
+    }
+
     const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
@@ -111,7 +121,22 @@ export async function onRequestPost({ request, env }) {
       }),
     });
 
-    if (!res.ok) return json({ error: "The diagnostic is busy. Please try again shortly." }, 502);
+    if (!res.ok) {
+      // Log the real upstream status and body to Workers Logs so failures are
+      // diagnosable, and map the common cases to clearer copy for the visitor.
+      const detail = await res.text().catch(() => "");
+      console.error("diagnostic: Anthropic API error", res.status, detail.slice(0, 500));
+      if (res.status === 401 || res.status === 403) {
+        return json(
+          { error: "The diagnostic is not configured correctly yet. Please book a conversation in the meantime." },
+          502,
+        );
+      }
+      if (res.status === 429 || res.status === 529) {
+        return json({ error: "The diagnostic is busy right now. Please try again in a minute." }, 503);
+      }
+      return json({ error: "The diagnostic hit a snag. Please try again shortly." }, 502);
+    }
 
     const out = await res.json();
     const text = (out.content || [])
