@@ -7,7 +7,7 @@
    Do not introduce em dashes anywhere.
    ------------------------------------------------------------------ */
 
-:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#8A7A6E;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--gold:#CC9C54;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#5C4D40;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--gold:#CC9C54;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
 /* Palette: FT "Pink Sheet" salmon background (#FFF1E5), dark ink, bronze accent. */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -16,7 +16,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;op
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
 h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.015em;color:var(--ink)}
 a{color:inherit}
-.label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
+.label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-deep)}
 .dot{width:4px;height:4px;border-radius:50%;background:var(--accent)}
 
 /* header + nav */
@@ -40,17 +40,17 @@ header.scrolled{border-color:var(--line)}
 .btn-primary:hover{background:#6A4509;border-color:#6A4509;transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(120,80,10,.6)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
-.menu-toggle{display:none;background:none;border:0;font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer}
+.menu-toggle{display:none;background:none;border:0;font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer}
 
 /* footer */
 footer{background:var(--ink);color:var(--on-dark);padding-block:clamp(2.6rem,5vw,3.8rem)}
 .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem}
 footer .mark{font-family:"Fraunces",serif;font-weight:600;font-size:1.3rem;color:var(--on-dark)}
 footer .flogo{height:40px;width:40px;display:block;margin-bottom:.6rem}
-footer .desc{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted);margin-top:.5rem}
+footer .desc{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-muted);margin-top:.5rem}
 .foot-col a{display:block;color:var(--on-dark-muted);text-decoration:none;font-size:.95rem;margin-bottom:.5rem;transition:color .2s}
 .foot-col a:hover{color:var(--on-dark)}
-.foot-col .h{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#CC9C54;margin-bottom:.9rem}
+.foot-col .h{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#CC9C54;margin-bottom:.9rem}
 .copy{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(238,229,212,.14);font-size:.82rem;color:var(--on-dark-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
 
 /* ------------------------------------------------------------------

@@ -238,7 +238,7 @@ const breadcrumbSchema = {
   .hero h1{font-size:clamp(2.2rem,1.2rem + 4vw,4.2rem); max-width:18ch; margin:.9rem 0 0;}
   .lead{font-size:clamp(1.06rem,1rem + .5vw,1.24rem); color:var(--ink-soft); max-width:54ch; margin:1.3rem 0 1.8rem;}
   .cta-row{display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:1.7rem;}
-  .meta{display:flex; flex-wrap:wrap; gap:1.1rem; font-family:var(--mono); font-size:.78rem; letter-spacing:.04em; color:var(--muted);}
+  .meta{display:flex; flex-wrap:wrap; gap:1.1rem; font-family:var(--mono); font-size:.78rem; font-weight:500; letter-spacing:.04em; color:var(--muted);}
   .meta span{display:inline-flex; align-items:center; gap:.5rem;}
   .meta span::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--accent);}
 
@@ -269,11 +269,11 @@ const breadcrumbSchema = {
   .engines{display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; margin-top:2.6rem;}
   .ecard{background:linear-gradient(160deg,#FFF7F0,#FBE7D8); border:1px solid var(--line); border-top:2px solid var(--accent); border-radius:3px; box-shadow:0 20px 44px -30px rgba(126,82,15,.4); padding:clamp(1.5rem,3vw,2.1rem);}
   .ecap{display:flex; align-items:baseline; gap:.8rem; margin-bottom:.4rem;}
-  .ecap .cnum{font-family:var(--mono); font-size:.85rem; color:var(--accent-deep);}
+  .ecap .cnum{font-family:var(--mono); font-weight:500; font-size:.85rem; color:var(--accent-deep);}
   .ecap h3{font-size:1.5rem;}
   .stage{display:grid; grid-template-columns:26px 1fr; gap:.9rem; padding:.85rem 0; border-top:1px solid var(--line);}
   .stage:first-of-type{border-top:none;}
-  .stage .si{font-family:var(--mono); font-size:.85rem; color:var(--accent); padding-top:.12rem;}
+  .stage .si{font-family:var(--mono); font-weight:500; font-size:.85rem; color:var(--accent); padding-top:.12rem;}
   .stage .sl{font-family:var(--serif); font-weight:500; font-size:1.12rem; color:var(--ink);}
   .stage .sd{font-size:.92rem; color:var(--ink-soft);}
 
@@ -293,7 +293,7 @@ const breadcrumbSchema = {
   .case .note{font-style:italic; color:var(--muted); font-size:.92rem;}
   .case .stats{background:var(--bg-2); border-left:1px solid var(--line); padding:clamp(1.8rem,3.5vw,2.6rem); display:flex; flex-direction:column; justify-content:center; gap:1.5rem;}
   .stat .big{font-family:var(--serif); font-weight:500; font-size:2.3rem; line-height:1; color:var(--accent-deep);}
-  .stat .lab{font-family:var(--mono); font-size:.74rem; letter-spacing:.04em; color:var(--muted); margin-top:.5rem; text-transform:uppercase;}
+  .stat .lab{font-family:var(--mono); font-weight:500; font-size:.74rem; letter-spacing:.04em; color:var(--muted); margin-top:.5rem; text-transform:uppercase;}
 
   .papers{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.8rem;}
   .ppr{background:#FFF8F2; border:1px solid var(--line); border-radius:3px; padding:1.5rem; transition:transform .18s ease, box-shadow .18s ease;}
@@ -319,7 +319,7 @@ const breadcrumbSchema = {
   .path{background:linear-gradient(160deg,#FFF7F0,#FBE7D8); border:1px solid var(--line); border-radius:3px; padding:clamp(1.6rem,3vw,2.2rem); box-shadow:0 18px 40px -30px rgba(126,82,15,.4);}
   .path h3{font-size:1.4rem; margin-bottom:.6rem;}
   .path p{color:var(--ink-soft); font-size:1rem;}
-  .contact{margin-top:2.6rem; padding-top:1.6rem; border-top:1px solid var(--line); font-family:var(--mono); font-size:.85rem; letter-spacing:.03em; color:var(--muted);}
+  .contact{margin-top:2.6rem; padding-top:1.6rem; border-top:1px solid var(--line); font-family:var(--mono); font-weight:500; font-size:.85rem; letter-spacing:.03em; color:var(--muted);}
   .contact a{color:var(--accent-deep);}
   .partners{margin-top:.7rem; color:var(--accent-deep);}
 
