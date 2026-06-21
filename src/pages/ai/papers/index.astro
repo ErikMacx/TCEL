@@ -1,0 +1,73 @@
+---
+// White papers hub. The open "body of knowledge" behind the AI feasibility
+// diagnostic, ordered by `order`. Cards reuse the site's paper/card idiom.
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const title = 'AI feasibility white papers | The open body of knowledge | TCEL';
+const description =
+  'The method behind the TCEL AI feasibility diagnostic, published openly: the process body of knowledge, where AI agents credibly help, the suitability rubric, build versus rent, safe deployment, and the system architecture.';
+
+const papers = (await getCollection('papers')).sort((a, b) => a.data.order - b.data.order);
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': 'https://www.tcel.com/ai/papers',
+  name: 'AI feasibility white papers',
+  description,
+  isPartOf: { '@id': 'https://www.tcel.com/#tcel' },
+  hasPart: papers.map((p) => ({
+    '@type': 'Article',
+    headline: p.data.title,
+    description: p.data.summary,
+    url: `https://www.tcel.com/ai/papers/${p.data.slug}`,
+  })),
+};
+---
+
+<Base title={title} description={description} active="feasibility">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(collectionSchema)} />
+
+  <main id="top">
+    <section>
+      <div class="wrap">
+        <div class="sec-head" style="max-width:42ch;">
+          <span class="label">The body of knowledge</span>
+          <h2 class="h2">Everything the diagnostic runs on, in the open</h2>
+          <p class="sec-lead">The method is not the hard part: choosing the right actor and standing it up is. So we publish all of it. Read the papers, run the <a href="/ai/diagnostic">free diagnostic</a>, and engage us at any stage, or not at all.</p>
+        </div>
+        <div class="papers">
+          {papers.map((p) => (
+            <a class="ppr" href={`/ai/papers/${p.data.slug}`}>
+              <span class="label">White paper {String(p.data.order).padStart(2, '0')}</span>
+              <h3>{p.data.title}</h3>
+              <p class="ppr-sum">{p.data.summary}</p>
+              <span class="read">Read the paper</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style is:global>
+  section{padding-block:clamp(3.2rem,7vw,5.6rem);}
+  .sec-head{max-width:34ch;}
+  .sec-head .label{display:block; margin-bottom:.9rem;}
+  .sec-head .h2{font-size:clamp(1.9rem,1.4rem + 1.8vw,3rem);}
+  .sec-lead{font-size:clamp(1.04rem,1rem + .4vw,1.2rem); color:var(--ink-soft); max-width:60ch; margin-top:1rem;}
+  .sec-lead a{color:var(--accent-deep);}
+
+  .papers{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.8rem;}
+  .ppr{display:block; background:#FFF8F2; border:1px solid var(--line); border-radius:3px; padding:1.6rem; text-decoration:none; color:inherit; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;}
+  .ppr:hover{transform:translateY(-2px); box-shadow:0 16px 34px -24px rgba(126,82,15,.5); border-color:var(--accent);}
+  .ppr .label{display:block; margin-bottom:.8rem;}
+  .ppr h3{font-size:1.22rem; margin-bottom:.7rem; line-height:1.15;}
+  .ppr .ppr-sum{font-size:.95rem; color:var(--ink-soft); line-height:1.5; margin:0 0 1.1rem;}
+  .ppr .read{font-family:"IBM Plex Mono",monospace; font-size:.8rem; letter-spacing:.04em; font-weight:500; color:var(--accent-deep);}
+
+  @media (max-width:880px){ .papers{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .papers{grid-template-columns:1fr;} }
+</style>

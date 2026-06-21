@@ -1,0 +1,347 @@
+---
+// AI feasibility page. Ported from the standalone site/feasibility.html (the
+// locked design and copy, already on our tokens). Chrome (header, footer,
+// buttons, tokens, fonts) comes from global.css and the Header/Footer
+// components, so this file keeps only the page-specific layout classes.
+// Structure, copy and the reduced-motion-safe hero reveal are preserved exactly.
+import Base from '../../layouts/Base.astro';
+
+const title = 'Feasibility | TCEL | AI agents for owner-managed businesses';
+const description =
+  'Find where AI agents genuinely help your business, then staff them properly. The open, honest AI diagnostic from TCEL.';
+const ogTitle = 'Feasibility, the open AI diagnostic from TCEL';
+
+// Service + breadcrumb schema, mirroring the insights pages so answer engines
+// can read the offer directly. Provider resolves to the #tcel entity in Base.
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://www.tcel.com/ai/feasibility#service',
+  name: 'AI feasibility diagnostic',
+  serviceType: 'AI feasibility and opportunity diagnostic',
+  description:
+    'A diagnostic that finds and ranks where AI agents credibly help an owner-managed business, sizes the saving honestly, and hands back a costed, staffed, sequenced roadmap. The opportunity analysis is open and free; the value is matching the right actor and standing it up.',
+  provider: { '@id': 'https://www.tcel.com/#tcel' },
+  areaServed: ['Gulf', 'EMEA', 'Asia'],
+  audience: {
+    '@type': 'BusinessAudience',
+    name: 'Owner-managed, document-heavy SMEs, 10 to 250 staff',
+  },
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'GBP',
+    name: 'Free opportunity diagnostic',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.tcel.com/' },
+    { '@type': 'ListItem', position: 2, name: 'AI', item: 'https://www.tcel.com/ai' },
+    { '@type': 'ListItem', position: 3, name: 'Feasibility', item: 'https://www.tcel.com/ai/feasibility' },
+  ],
+};
+---
+
+<Base title={title} description={description} ogTitle={ogTitle} active="feasibility">
+  <meta slot="head" property="og:description" content={description} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main id="top">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="wrap">
+        <div class="htext">
+          <span class="label">AI · Feasibility</span>
+          <h1>Find where AI agents genuinely help.<br>Then staff them properly.</h1>
+          <p class="lead">Helping a business with AI is two problems: spotting the opportunities that are actually worth it, and sourcing the right actor to run each one. We publish the first openly. The second, the judgement and the staffing, is where we earn our keep.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="/ai/diagnostic">Start the free diagnostic</a>
+            <a class="btn btn-ghost" href="#engage">Talk to us</a>
+          </div>
+          <div class="meta">
+            <span>Owner-managed SMEs</span>
+            <span>10 to 250 staff</span>
+            <span>Document-heavy operations</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ptitle">Two problems, not one.</div>
+          <div class="prow">
+            <div class="pnum">01</div>
+            <div><h3>Opportunity engine</h3><p>Find and rank where agents credibly help. Sized honestly. This half is open and free.</p></div>
+          </div>
+          <div class="prow">
+            <div class="pnum">02</div>
+            <div><h3>Staffing engine</h3><p>Match the right actor to each, and stand it up. Judgement plus execution. The half that earns.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO -->
+    <section>
+      <div class="wrap who">
+        <div class="sec-head">
+          <span class="label">Who it is for</span>
+          <h2 class="h2">Built for owner-managed businesses that run on documents</h2>
+          <p class="sec-lead">The sweet spot is simple: enough volume that the work is material, enough mess that there is something to fix, and enough will to act on it.</p>
+        </div>
+        <div>
+          <div class="who-h">Transaction and document-heavy SMEs, 10 to 250 staff</div>
+          <div class="tags">
+            <span class="tk">Professional services</span>
+            <span class="tk">Finance and accounting</span>
+            <span class="tk">Distribution and wholesale</span>
+            <span class="tk">E-commerce operations</span>
+            <span class="tk">Agencies</span>
+            <span class="tk">Property and legal admin</span>
+            <span class="tk">Healthcare admin</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="paper-bg">
+      <div class="wrap">
+        <div class="sec-head" style="max-width:40ch;">
+          <span class="label">How it works</span>
+          <h2 class="h2">A few days, not a few weeks</h2>
+          <p class="sec-lead">A diagnostic that does in days what a transformation consultant normally takes two to three weeks to do: understand your processes and costs, find where agents credibly help, size the prize honestly, and hand you a costed, staffed, sequenced plan. It runs as two engines.</p>
+        </div>
+
+        <div class="engines">
+          <div class="ecard">
+            <div class="ecap"><span class="cnum">01</span><h3>Opportunity engine</h3></div>
+            <div class="stage"><div class="si">1</div><div><div class="sl">Scope</div><div class="sd">What the business is, and what you actually want from it.</div></div></div>
+            <div class="stage"><div class="si">2</div><div><div class="sl">Intake</div><div class="sd">Your processes, systems, volumes, and numbers, read from what you already have.</div></div></div>
+            <div class="stage"><div class="si">3</div><div><div class="sl">Interviews</div><div class="sd">Where time goes, what hurts, and where the constraint really sits.</div></div></div>
+            <div class="stage"><div class="si">4</div><div><div class="sl">Cost baseline</div><div class="sd">The fully-loaded cost a saving is measured against. <a href="/ai/papers/process-body-of-knowledge">The cost paper</a></div></div></div>
+            <div class="stage"><div class="si">5</div><div><div class="sl">Opportunity scoring</div><div class="sd">Every task scored on impact, and on feasibility and safety. <a href="/ai/papers/suitability-rubric">The rubric</a></div></div></div>
+          </div>
+          <div class="ecard">
+            <div class="ecap"><span class="cnum">02</span><h3>Staffing engine</h3></div>
+            <div class="stage"><div class="si">6</div><div><div class="sl">Actor mapping</div><div class="sd">The right actor for each: an agent, a human-in-the-loop, or a person. Build or rent. <a href="/ai/papers/build-versus-rent">Build vs rent</a></div></div></div>
+            <div class="stage"><div class="si">7</div><div><div class="sl">Savings by category</div><div class="sd">The prize per opportunity, in honest bands, labour and cash kept apart.</div></div></div>
+            <div class="stage"><div class="si">8</div><div><div class="sl">Roadmap</div><div class="sd">Sequenced, with the safest measurable pilot first on the critical path.</div></div></div>
+            <div class="stage"><div class="si">·</div><div><div class="sl">Hand-off</div><div class="sd">Run it yourself, or have us stand it up, at any stage you choose.</div></div></div>
+          </div>
+        </div>
+
+        <div class="pillars">
+          <div class="pillar"><div class="pdot"></div><h3>Automate last</h3><p>A clean process first. We never automate a mess, and we will say when a fix beats an agent.</p></div>
+          <div class="pillar"><div class="pdot"></div><h3>The constraint is a person</h3><p>Usually a role, a queue, or a sign-off, not a machine. Relief there multiplies.</p></div>
+          <div class="pillar"><div class="pdot"></div><h3>The saving must reach the P&amp;L</h3><p>We measure the baseline before we deploy, so a saving can be proven, not assumed.</p></div>
+          <div class="pillar"><div class="pdot"></div><h3>We say where AI should not go</h3><p>Some work belongs to people. A credible plan names it plainly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section>
+      <div class="wrap">
+        <div class="sec-head" style="max-width:40ch;">
+          <span class="label">Proof</span>
+          <h2 class="h2">A worked example, and the method behind it</h2>
+        </div>
+
+        <div class="case">
+          <div class="body">
+            <span class="label">Worked example</span>
+            <h3>Glenfield Distribution</h3>
+            <p>A representative 45-person wholesale distributor. The diagnostic mapped the processes, found the constraint (two people, not the warehouse), and produced a costed, staffed roadmap with the safest pilot first.</p>
+            <p class="note">Representative and synthetic, until the first live engagement replaces it.</p>
+          </div>
+          <div class="stats">
+            <div class="stat"><div class="big">&pound;216k</div><div class="lab">a year of addressable back-office cost</div></div>
+            <div class="stat"><div class="big">~&pound;98k</div><div class="lab">a year expected, banded &pound;58k to 141k</div></div>
+            <div class="stat"><div class="big">8</div><div class="lab">opportunities, pilot first on the critical path</div></div>
+          </div>
+        </div>
+
+        <div class="papers" id="papers">
+          <div class="ppr"><span class="label">White paper</span><h3>The process body of knowledge, admin-first</h3><a class="read" href="/ai/papers/process-body-of-knowledge">Read the paper</a></div>
+          <div class="ppr"><span class="label">White paper</span><h3>Where AI agents credibly help</h3><a class="read" href="/ai/papers/where-ai-agents-help">Read the paper</a></div>
+          <div class="ppr"><span class="label">White paper</span><h3>The suitability rubric</h3><a class="read" href="/ai/papers/suitability-rubric">Read the paper</a></div>
+          <div class="ppr"><span class="label">White paper</span><h3>Choosing the right actor: build versus rent</h3><a class="read" href="/ai/papers/build-versus-rent">Read the paper</a></div>
+          <div class="ppr"><span class="label">White paper</span><h3>Safe deployment and governance</h3><a class="read" href="/ai/papers/safe-deployment-governance">Read the paper</a></div>
+          <div class="ppr"><span class="label">White paper</span><h3>The system architecture</h3><a class="read" href="/ai/papers/system-architecture">Read the paper</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH (dark) -->
+    <section class="dark">
+      <div class="wrap">
+        <div class="sec-head" style="max-width:38ch;">
+          <span class="label">Our approach</span>
+          <h2 class="h2">Everything upfront</h2>
+          <p class="sec-lead">We publish the method openly, because the knowledge is not the hard part: choosing the right actor and standing it up is. Read everything here, run the free diagnostic, and engage us at any stage, or not at all.</p>
+        </div>
+        <div class="values">
+          <div class="val"><div class="vd"></div><p><strong>We give the method away.</strong> The body of knowledge is open, on this page.</p></div>
+          <div class="val"><div class="vd"></div><p><strong>We say where AI should not go.</strong> Judgement, relationships, and physical work stay with people.</p></div>
+          <div class="val"><div class="vd"></div><p><strong>We measure before we deploy.</strong> A saving that was never baselined cannot be claimed.</p></div>
+          <div class="val"><div class="vd"></div><p><strong>We would rather rent you a capability</strong> than sell you a build you will come to regret.</p></div>
+          <div class="val"><div class="vd"></div><p><strong>We under-promise.</strong> Every number is a banded range with its confidence shown.</p></div>
+          <div class="val"><div class="vd"></div><p><strong>You stay in control.</strong> Every agent runs in shadow first, acts under approval, owned by a named person.</p></div>
+        </div>
+        <p class="closing">You can read all of it, run the diagnostic, and still choose to do it yourself.</p>
+      </div>
+    </section>
+
+    <!-- ENGAGE -->
+    <section class="paper-bg" id="engage">
+      <div class="wrap">
+        <div class="sec-head" style="max-width:34ch;">
+          <span class="label">Start where you like</span>
+          <h2 class="h2">Two ways in, no obligation</h2>
+        </div>
+        <div class="paths">
+          <div class="path">
+            <h3>Run the free diagnostic</h3>
+            <p>A quick, no-obligation read on where the opportunities are likely to sit in a business like yours. Free, and yours to keep.</p>
+            <a class="btn btn-primary" href="/ai/diagnostic">Start the free diagnostic</a>
+          </div>
+          <div class="path">
+            <h3>Talk to us</h3>
+            <p>Prefer a person? Contract us at any stage: the full diagnostic, the build, or an interim agent team through GRABS.</p>
+            <a class="btn btn-ghost" href="mailto:eric@tcel.com?subject=Talk%20to%20us">Get in touch</a>
+          </div>
+        </div>
+        <div class="contact">
+          Eric McLean &middot; TCEL &middot; <a href="mailto:eric@tcel.com">eric@tcel.com</a>
+          <div class="partners">Advisers and partners: there is a deeper consultant mode for analysts. Get in touch.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style is:global>
+  /* Page-specific layout for /ai/feasibility, extracted verbatim from the
+     standalone feasibility.html. Token redefinitions, base resets, buttons,
+     header and footer were dropped: global.css and the components supply them. */
+
+  p{margin:0 0 1rem;}
+  a{color:var(--accent-deep); text-decoration:none;}
+  a:hover{text-decoration:underline; text-underline-offset:3px;}
+  :focus-visible{outline:2.5px solid var(--accent); outline-offset:3px;}
+
+  /* hero */
+  .hero .wrap{display:grid; grid-template-columns:1.02fr .98fr; gap:clamp(2rem,5vw,4.5rem); align-items:center; padding-block:clamp(3.4rem,7vw,6rem);}
+  .hero h1{font-size:clamp(2.2rem,1.2rem + 4vw,4.2rem); max-width:18ch; margin:.9rem 0 0;}
+  .lead{font-size:clamp(1.06rem,1rem + .5vw,1.24rem); color:var(--ink-soft); max-width:54ch; margin:1.3rem 0 1.8rem;}
+  .cta-row{display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:1.7rem;}
+  .meta{display:flex; flex-wrap:wrap; gap:1.1rem; font-family:var(--mono); font-size:.78rem; letter-spacing:.04em; color:var(--muted);}
+  .meta span{display:inline-flex; align-items:center; gap:.5rem;}
+  .meta span::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--accent);}
+
+  /* hero panel */
+  .panel{background:linear-gradient(160deg,#FFF7F0,#FBE7D8); border:1px solid var(--line); border-radius:3px; box-shadow:0 24px 50px -30px rgba(126,82,15,.45); padding:clamp(1.4rem,3vw,2.1rem);}
+  .panel .ptitle{font-family:var(--serif); font-style:italic; font-weight:500; font-size:1.4rem; color:var(--ink); margin-bottom:.4rem;}
+  .prow{display:grid; grid-template-columns:auto 1fr; gap:.9rem; padding:1.05rem 0; border-top:1px dashed var(--line);}
+  .prow .pnum{font-family:var(--mono); font-size:.9rem; font-weight:500; color:var(--accent-deep);}
+  .prow h3{font-size:1.18rem; margin-bottom:.25rem;}
+  .prow p{font-size:.95rem; color:var(--ink-soft); margin:0;}
+
+  /* sections */
+  section{padding-block:clamp(3.2rem,7vw,5.6rem);}
+  .paper-bg{background:var(--bg-2);}
+  .sec-head{max-width:34ch;}
+  .sec-head .label{display:block; margin-bottom:.9rem;}
+  .h2{font-size:clamp(1.9rem,1.4rem + 1.8vw,3rem);}
+  .sec-lead{font-size:clamp(1.04rem,1rem + .4vw,1.2rem); color:var(--ink-soft); max-width:60ch; margin-top:1rem;}
+
+  /* who */
+  .who{display:grid; grid-template-columns:1.05fr 1fr; gap:clamp(2rem,5vw,4rem); align-items:start;}
+  .who-h{font-weight:600; color:var(--ink); font-family:var(--mono); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:1rem;}
+  .tags{display:flex; flex-wrap:wrap; gap:.7rem;}
+  .tk{display:inline-flex; align-items:center; gap:.55rem; font-size:.95rem; background:#FFF8F2; border:1px solid var(--line); border-radius:2px; padding:.55rem .9rem; color:var(--ink);}
+  .tk::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent);}
+
+  /* engines */
+  .engines{display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; margin-top:2.6rem;}
+  .ecard{background:linear-gradient(160deg,#FFF7F0,#FBE7D8); border:1px solid var(--line); border-top:2px solid var(--accent); border-radius:3px; box-shadow:0 20px 44px -30px rgba(126,82,15,.4); padding:clamp(1.5rem,3vw,2.1rem);}
+  .ecap{display:flex; align-items:baseline; gap:.8rem; margin-bottom:.4rem;}
+  .ecap .cnum{font-family:var(--mono); font-size:.85rem; color:var(--accent-deep);}
+  .ecap h3{font-size:1.5rem;}
+  .stage{display:grid; grid-template-columns:26px 1fr; gap:.9rem; padding:.85rem 0; border-top:1px solid var(--line);}
+  .stage:first-of-type{border-top:none;}
+  .stage .si{font-family:var(--mono); font-size:.85rem; color:var(--accent); padding-top:.12rem;}
+  .stage .sl{font-family:var(--serif); font-weight:500; font-size:1.12rem; color:var(--ink);}
+  .stage .sd{font-size:.92rem; color:var(--ink-soft);}
+
+  /* pillars */
+  .pillars{display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin-top:2.6rem; border:1px solid var(--line); border-radius:3px; overflow:hidden; background:#FFF8F2;}
+  .pillar{padding:1.6rem 1.4rem; border-left:1px solid var(--line);}
+  .pillar:first-child{border-left:none;}
+  .pillar .pdot{width:7px; height:7px; border-radius:50%; background:var(--accent); margin-bottom:.9rem;}
+  .pillar h3{font-size:1.18rem; margin-bottom:.5rem;}
+  .pillar p{font-size:.9rem; color:var(--ink-soft); margin:0;}
+
+  /* proof */
+  .case{display:grid; grid-template-columns:1.35fr 1fr; gap:0; border:1px solid var(--line); border-top:2px solid var(--accent); border-radius:3px; overflow:hidden; margin-top:2.4rem; box-shadow:0 20px 44px -30px rgba(126,82,15,.4);}
+  .case .body{background:linear-gradient(160deg,#FFF7F0,#FFF1E5); padding:clamp(1.8rem,3.5vw,2.6rem);}
+  .case h3{font-size:1.7rem; margin:.7rem 0 .8rem;}
+  .case p{color:var(--ink-soft);}
+  .case .note{font-style:italic; color:var(--muted); font-size:.92rem;}
+  .case .stats{background:var(--bg-2); border-left:1px solid var(--line); padding:clamp(1.8rem,3.5vw,2.6rem); display:flex; flex-direction:column; justify-content:center; gap:1.5rem;}
+  .stat .big{font-family:var(--serif); font-weight:500; font-size:2.3rem; line-height:1; color:var(--accent-deep);}
+  .stat .lab{font-family:var(--mono); font-size:.74rem; letter-spacing:.04em; color:var(--muted); margin-top:.5rem; text-transform:uppercase;}
+
+  .papers{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.8rem;}
+  .ppr{background:#FFF8F2; border:1px solid var(--line); border-radius:3px; padding:1.5rem; transition:transform .18s ease, box-shadow .18s ease;}
+  .ppr:hover{transform:translateY(-2px); box-shadow:0 16px 34px -24px rgba(126,82,15,.5);}
+  .ppr .label{display:block; margin-bottom:.8rem;}
+  .ppr h3{font-size:1.18rem; margin-bottom:.9rem;}
+  .ppr .read{font-family:var(--mono); font-size:.8rem; letter-spacing:.04em; font-weight:500;}
+
+  /* dark band */
+  .dark{background:linear-gradient(165deg,var(--dark),var(--dark-2)); color:var(--on-dark);}
+  .dark .label{color:var(--gold);}
+  .dark .h2{color:var(--on-dark);}
+  .dark .sec-lead{color:var(--on-dark-muted);}
+  .values{display:grid; grid-template-columns:1fr 1fr; gap:.4rem 2.6rem; margin-top:2.4rem;}
+  .val{display:grid; grid-template-columns:auto 1fr; gap:.9rem; align-items:start; padding:.7rem 0; border-top:1px solid rgba(238,229,212,.12);}
+  .val .vd{width:7px; height:7px; border-radius:50%; background:var(--gold); margin-top:.55rem;}
+  .val p{margin:0; font-size:1.02rem; color:var(--on-dark);}
+  .val strong{color:#fff; font-weight:600;}
+  .dark .closing{font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(1.3rem,1rem + 1.3vw,1.9rem); color:var(--on-dark); max-width:30ch; margin-top:2.6rem;}
+
+  /* engage */
+  .paths{display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2.6rem;}
+  .path{background:linear-gradient(160deg,#FFF7F0,#FBE7D8); border:1px solid var(--line); border-radius:3px; padding:clamp(1.6rem,3vw,2.2rem); box-shadow:0 18px 40px -30px rgba(126,82,15,.4);}
+  .path h3{font-size:1.4rem; margin-bottom:.6rem;}
+  .path p{color:var(--ink-soft); font-size:1rem;}
+  .contact{margin-top:2.6rem; padding-top:1.6rem; border-top:1px solid var(--line); font-family:var(--mono); font-size:.85rem; letter-spacing:.03em; color:var(--muted);}
+  .contact a{color:var(--accent-deep);}
+  .partners{margin-top:.7rem; color:var(--accent-deep);}
+
+  /* hero entrance, reduced-motion safe (visible by default). Reuses the
+     global "rise" keyframe defined in global.css. */
+  @media (prefers-reduced-motion:no-preference){
+    .hero .htext{animation:rise .7s ease both;}
+    .hero .panel{animation:rise .7s .08s ease both;}
+  }
+
+  /* responsive */
+  @media (max-width:880px){
+    .hero .wrap,.who,.engines,.pillars,.case,.papers,.values,.paths{grid-template-columns:1fr;}
+    .pillars{border-radius:3px;}
+    .pillar{border-left:none; border-top:1px solid var(--line);}
+    .pillar:first-child{border-top:none;}
+    .case .stats{border-left:none; border-top:1px solid var(--line); flex-direction:row; flex-wrap:wrap; gap:1.6rem;}
+    .stat{flex:1 1 38%;}
+    .papers{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){
+    .papers{grid-template-columns:1fr;}
+    .meta{gap:.5rem 1.1rem;}
+  }
+</style>

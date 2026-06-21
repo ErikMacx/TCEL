@@ -1,0 +1,72 @@
+---
+// Individual AI white paper. Reuses the insights/article layout and prose
+// styling. The front-matter title is the H1, the summary is the lead, the body
+// is answer-first (questions as H2s). Carries Article JSON-LD. Routed by the
+// front-matter slug, e.g. /ai/papers/process-body-of-knowledge.
+import Base from '../../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const all = await getCollection('papers');
+  return all.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, summary } = entry.data;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description: summary,
+  articleSection: 'AI feasibility',
+  author: { '@type': 'Person', '@id': 'https://www.tcel.com/#eric', name: 'Eric McLean' },
+  publisher: { '@id': 'https://www.tcel.com/#tcel' },
+  mainEntityOfPage: canonical,
+  isPartOf: { '@type': 'WebPage', '@id': 'https://www.tcel.com/ai/feasibility' },
+};
+---
+
+<Base title={`${title} | AI feasibility | TCEL`} description={summary} active="feasibility">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleSchema)} />
+
+  <main class="brief-page">
+    <article class="wrap">
+      <a class="back" href="/ai/papers">White papers</a>
+      <span class="label">White paper</span>
+      <h1>{title}</h1>
+      <p class="lead">{summary}</p>
+      <div class="ameta"><span><i class="dot"></i>The open body of knowledge</span><span><i class="dot"></i><a href="/ai/feasibility">The diagnostic</a></span></div>
+      <div class="prose">
+        <Content />
+      </div>
+      <div class="paper-foot">
+        <a class="btn btn-primary" href="/ai/diagnostic">Start the free diagnostic</a>
+        <a class="btn btn-ghost" href="/ai/feasibility">Read the method</a>
+      </div>
+    </article>
+  </main>
+</Base>
+
+<style is:global>
+  .brief-page{padding-block:clamp(2.6rem,5vw,4.4rem)}
+  .brief-page article{max-width:74ch}
+  .brief-page .back{display:inline-block;margin-bottom:1.8rem;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);text-decoration:none}
+  .brief-page .back::before{content:"\2190  "}
+  .brief-page .label{display:block;margin-bottom:1rem}
+  .brief-page h1{font-size:clamp(2.1rem,1.5rem + 2.6vw,3.3rem);max-width:24ch;margin-bottom:1.3rem}
+  .brief-page .lead{font-size:clamp(1.18rem,1.06rem + .5vw,1.5rem);line-height:1.4;color:var(--ink);font-family:"Fraunces",Georgia,serif;font-style:italic;max-width:60ch;margin-bottom:1.6rem}
+  .brief-page .ameta{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;padding-bottom:1.8rem;border-bottom:1px solid var(--line);margin-bottom:2rem}
+  .brief-page .ameta span{display:inline-flex;align-items:center;gap:.5rem}
+  .brief-page .ameta a{color:var(--accent-deep)}
+  .brief-page .prose p{color:var(--ink-soft);margin-bottom:1.2rem;max-width:66ch}
+  .brief-page .prose p em{color:var(--muted)}
+  .brief-page .prose h2{font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);margin:2rem 0 1rem}
+  .brief-page .prose h3{font-size:1.25rem;margin:1.6rem 0 .8rem}
+  .brief-page .prose a{color:var(--accent-deep);text-underline-offset:3px}
+  .brief-page .paper-foot{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid var(--line)}
+</style>

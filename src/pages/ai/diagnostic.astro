@@ -1,0 +1,338 @@
+---
+// The free AI-feasibility diagnostic (taster). Eight-field form in the TCEL
+// design system, a loading state, and a results panel that renders the model's
+// qualitative sketch in our prose style with two CTAs beneath. Posts to the
+// Pages Function at /api/diagnostic. Content is visible by default; nothing is
+// hidden behind JavaScript-dependent reveals.
+import Base from '../../layouts/Base.astro';
+import { CAL_URL, TURNSTILE_SITE_KEY } from '../../consts';
+
+const title = 'The free AI diagnostic | Feasibility | TCEL';
+const description =
+  'A quick, no-obligation first read on where AI agents are likely to help your business. Qualitative, honest, and yours to keep. From TCEL.';
+const ogTitle = 'The free AI diagnostic from TCEL';
+
+const sectors = [
+  'Professional services',
+  'Finance and accounting',
+  'Distribution and wholesale',
+  'E-commerce operations',
+  'Agency',
+  'Property or legal admin',
+  'Healthcare admin',
+  'Other',
+];
+const headcounts = ['Under 10', '10 to 50', '50 to 150', '150 to 250', 'Over 250'];
+const heaviest = [
+  'Order or case entry',
+  'Supplier invoices',
+  'Customer support and queries',
+  'Quotes and pricing',
+  'Reporting',
+  'Onboarding',
+  'Scheduling',
+  'Reconciliations',
+  'Other',
+];
+const volumes = ['Under 100', '100 to 500', '500 to 2,000', 'Over 2,000'];
+const systems = ['Yes, mostly', 'Partly', 'No', 'Not sure'];
+const goals = ['Cut cost', 'Free capacity', 'Faster turnaround', 'Fewer errors', 'Not sure'];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://www.tcel.com/ai/diagnostic',
+  name: 'The free AI diagnostic',
+  description,
+  isPartOf: { '@id': 'https://www.tcel.com/#tcel' },
+};
+---
+
+<Base title={title} description={description} ogTitle={ogTitle} active="feasibility">
+  <meta slot="head" property="og:description" content={description} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceSchema)} />
+  {TURNSTILE_SITE_KEY && (
+    <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  )}
+
+  <main id="top">
+    <section>
+      <div class="wrap diag">
+        <div class="sec-head">
+          <span class="label">AI · Free diagnostic</span>
+          <h1 class="h1">A first read on where AI agents could help</h1>
+          <p class="sec-lead">Tell us a little about how the work flows. We will give you an honest, qualitative read on where the opportunities probably sit, written as we would write it. No specific figures: that is the paid work. Under a minute, no obligation, yours to keep.</p>
+        </div>
+
+        <form id="diag-form" class="diag-form" novalidate>
+          <div class="field">
+            <label for="sector">Your sector</label>
+            <select id="sector" name="sector" required>
+              <option value="" disabled selected>Choose one</option>
+              {sectors.map((s) => <option value={s}>{s}</option>)}
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="headcount">Headcount</label>
+            <select id="headcount" name="headcount" required>
+              <option value="" disabled selected>Choose one</option>
+              {headcounts.map((h) => <option value={h}>{h}</option>)}
+            </select>
+          </div>
+
+          <div class="field field-wide">
+            <span class="flabel">Which work is heaviest? <em>Pick any that apply.</em></span>
+            <div class="checks">
+              {heaviest.map((h) => (
+                <label class="check"><input type="checkbox" name="heaviest" value={h} /> {h}</label>
+              ))}
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="volume">Roughly how much of that per month?</label>
+            <select id="volume" name="volume" required>
+              <option value="" disabled selected>Choose one</option>
+              {volumes.map((v) => <option value={v}>{v}</option>)}
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="systems">Do your main systems talk to each other?</label>
+            <select id="systems" name="systems" required>
+              <option value="" disabled selected>Choose one</option>
+              {systems.map((s) => <option value={s}>{s}</option>)}
+            </select>
+          </div>
+
+          <div class="field field-wide">
+            <label for="timesink">The single biggest time-sink</label>
+            <input type="text" id="timesink" name="timesink" maxlength="200" placeholder="In a sentence: what eats the most time?" />
+          </div>
+
+          <div class="field">
+            <label for="goal">What would help most?</label>
+            <select id="goal" name="goal" required>
+              <option value="" disabled selected>Choose one</option>
+              {goals.map((g) => <option value={g}>{g}</option>)}
+            </select>
+          </div>
+
+          <div class="field field-wide">
+            <label for="notes">Anything else we should know? <em>Optional.</em></label>
+            <textarea id="notes" name="notes" maxlength="300" rows="3" placeholder="Optional context."></textarea>
+          </div>
+
+          {TURNSTILE_SITE_KEY && (
+            <div class="field field-wide">
+              <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+            </div>
+          )}
+
+          <div class="field field-wide cta-row">
+            <button type="submit" class="btn btn-primary" id="diag-submit">Get my first read</button>
+            <a class="btn btn-ghost" href="/ai/feasibility">Read the method</a>
+          </div>
+          <p class="diag-fine">A free first read, not a full diagnosis. We do not store this to sell you anything.</p>
+        </form>
+
+        <!-- Loading -->
+        <div id="diag-loading" class="diag-panel" hidden>
+          <span class="label">Reading your answers</span>
+          <p class="loading-line">Looking at how the work flows, and where an agent could credibly help. One moment.</p>
+        </div>
+
+        <!-- Result -->
+        <div id="diag-result" class="diag-panel" hidden>
+          <span class="label">Your first read</span>
+          <div id="diag-sketch" class="prose"></div>
+          <div class="result-cta">
+            <a class="btn btn-primary" href={CAL_URL} target="_blank" rel="noopener">Book a conversation</a>
+            <a class="btn btn-ghost" href="/ai/feasibility">Read the method</a>
+          </div>
+          <p class="diag-fine">This is a first read. A real estimate needs your actual volumes and costs, which is the full diagnostic.</p>
+        </div>
+
+        <!-- Error -->
+        <div id="diag-error" class="diag-panel diag-error" hidden>
+          <span class="label">Something went wrong</span>
+          <p id="diag-error-msg" class="loading-line"></p>
+          <div class="result-cta">
+            <button type="button" class="btn btn-ghost" id="diag-retry">Try again</button>
+            <a class="btn btn-primary" href={CAL_URL} target="_blank" rel="noopener">Book a conversation instead</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<script>
+  // Render the model's simple-markdown sketch safely: escape first, then turn
+  // **bold** into <strong>, "- " lines into a list, blank-line groups into <p>.
+  function escapeHtml(s: string): string {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+  function renderSketch(md: string): string {
+    const esc = escapeHtml(md.trim());
+    const blocks = esc.split(/\n{2,}/);
+    let html = '';
+    for (const block of blocks) {
+      const lines = block.split('\n');
+      const isList = lines.every((l) => /^\s*[-*]\s+/.test(l));
+      if (isList) {
+        html += '<ul>' + lines.map((l) => '<li>' + inline(l.replace(/^\s*[-*]\s+/, '')) + '</li>').join('') + '</ul>';
+      } else {
+        html += '<p>' + inline(block.replace(/\n/g, ' ')) + '</p>';
+      }
+    }
+    return html;
+  }
+  function inline(s: string): string {
+    return s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  }
+
+  const form = document.getElementById('diag-form') as HTMLFormElement;
+  const submit = document.getElementById('diag-submit') as HTMLButtonElement;
+  const loading = document.getElementById('diag-loading')!;
+  const result = document.getElementById('diag-result')!;
+  const sketchEl = document.getElementById('diag-sketch')!;
+  const errorBox = document.getElementById('diag-error')!;
+  const errorMsg = document.getElementById('diag-error-msg')!;
+  const retry = document.getElementById('diag-retry')!;
+
+  // Stubbed local preview: /ai/diagnostic?stub renders a canned sketch without
+  // calling the API, so the UI can be previewed before the key is set.
+  const STUB = new URLSearchParams(location.search).has('stub');
+  const STUB_SKETCH = `**Where the opportunities likely sit.** Supplier invoices look like the clearest candidate: high volume, structured documents, and a human-in-the-loop agent could read and code them while a person approves. Customer queries are a second area, with an agent drafting replies for a person to send. Reconciliations are a likely third, with the agent matching the clean cases and flagging the rest.
+
+**Fix this first.** Your answer suggests systems that do not fully talk to each other. That is worth sorting before automating, or an agent just moves the mess faster.
+
+**Where AI will not help you.** Judgement calls, your key client relationships, and anything physical stay with your people. An agent prepares and drafts; a person decides.
+
+**A sensible first step.** Pick one high-volume, internal, reversible task, measure it for a week, and run a small pilot there. When you want the costed, staffed version, run the full diagnostic or talk to us.`;
+
+  function show(el: Element | null) {
+    [loading, result, errorBox].forEach((p) => p.setAttribute('hidden', ''));
+    if (el) el.removeAttribute('hidden');
+  }
+
+  function collect() {
+    const fd = new FormData(form);
+    const heaviest = fd.getAll('heaviest').map(String);
+    const token = (fd.get('cf-turnstile-response') as string) || '';
+    return {
+      sector: fd.get('sector') || '',
+      headcount: fd.get('headcount') || '',
+      heaviest,
+      volume: fd.get('volume') || '',
+      timesink: fd.get('timesink') || '',
+      systems: fd.get('systems') || '',
+      goal: fd.get('goal') || '',
+      notes: fd.get('notes') || '',
+      turnstileToken: token,
+    };
+  }
+
+  async function run() {
+    const data = collect();
+    if (!data.sector || data.heaviest.length === 0) {
+      show(errorBox);
+      errorMsg.textContent = 'Please choose a sector and at least one kind of heaviest work.';
+      return;
+    }
+
+    submit.disabled = true;
+    show(loading);
+    loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    if (STUB) {
+      setTimeout(() => {
+        sketchEl.innerHTML = renderSketch(STUB_SKETCH);
+        show(result);
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        submit.disabled = false;
+      }, 700);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/diagnostic', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || !out.sketch) {
+        show(errorBox);
+        errorMsg.textContent = out.error || 'The diagnostic is busy. Please try again shortly.';
+      } else {
+        sketchEl.innerHTML = renderSketch(out.sketch);
+        show(result);
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } catch {
+      show(errorBox);
+      errorMsg.textContent = 'We could not reach the diagnostic. Please check your connection and try again.';
+    } finally {
+      submit.disabled = false;
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    run();
+  });
+  retry.addEventListener('click', () => {
+    show(null);
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+</script>
+
+<style is:global>
+  .diag{max-width:760px;}
+  .sec-head{max-width:46ch;}
+  .sec-head .label{display:block; margin-bottom:.9rem;}
+  .diag .h1{font-size:clamp(2rem,1.4rem + 2.4vw,3.1rem); max-width:20ch; margin-bottom:1.1rem;}
+  .sec-lead{font-size:clamp(1.04rem,1rem + .4vw,1.2rem); color:var(--ink-soft); max-width:60ch; margin-top:1rem;}
+
+  section{padding-block:clamp(3rem,7vw,5.2rem);}
+
+  /* form */
+  .diag-form{display:grid; grid-template-columns:1fr 1fr; gap:1.4rem 1.6rem; margin-top:2.6rem;}
+  .field{display:flex; flex-direction:column; gap:.5rem; min-width:0;}
+  .field-wide{grid-column:1 / -1;}
+  .diag-form label, .diag-form .flabel{font-family:"IBM Plex Mono",monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-deep); font-weight:500;}
+  .diag-form label em, .diag-form .flabel em{font-style:normal; color:var(--muted); text-transform:none; letter-spacing:0;}
+  .diag-form select, .diag-form input[type="text"], .diag-form textarea{
+    font-family:"Hanken Grotesk",sans-serif; font-size:1rem; color:var(--ink);
+    background:#FFF8F2; border:1px solid var(--line); border-radius:2px; padding:.7rem .85rem;
+    width:100%; transition:border-color .2s, box-shadow .2s;
+  }
+  .diag-form select:focus, .diag-form input[type="text"]:focus, .diag-form textarea:focus{
+    outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(166,113,43,.14);
+  }
+  .diag-form textarea{resize:vertical;}
+  .checks{display:grid; grid-template-columns:1fr 1fr; gap:.5rem .9rem;}
+  .check{display:flex; align-items:center; gap:.5rem; font-family:"Hanken Grotesk",sans-serif; font-size:.96rem; letter-spacing:0; text-transform:none; color:var(--ink); font-weight:400;}
+  .check input{accent-color:var(--accent-deep); width:1rem; height:1rem; flex:none;}
+  .diag-form .cta-row{display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; margin-top:.4rem;}
+  .diag-fine{font-size:.86rem; color:var(--muted); margin:.4rem 0 0;}
+
+  /* panels */
+  .diag-panel{margin-top:2.4rem; background:linear-gradient(160deg,#FFF7F0,#FBE7D8); border:1px solid var(--line); border-top:2px solid var(--accent); border-radius:3px; padding:clamp(1.6rem,3vw,2.4rem); box-shadow:0 20px 44px -30px rgba(126,82,15,.4);}
+  .diag-panel .label{display:block; margin-bottom:1rem;}
+  .diag-error{border-top-color:#a23b2b;}
+  .loading-line{color:var(--ink-soft); margin:0;}
+  .diag-panel .prose p{color:var(--ink-soft); margin:0 0 1rem; max-width:64ch;}
+  .diag-panel .prose p strong{color:var(--ink); font-weight:600;}
+  .diag-panel .prose ul{margin:0 0 1rem; padding-left:1.1rem; color:var(--ink-soft);}
+  .diag-panel .prose li{margin:0 0 .4rem; max-width:62ch;}
+  .result-cta{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.6rem; padding-top:1.5rem; border-top:1px solid var(--line);}
+
+  @media (max-width:680px){
+    .diag-form{grid-template-columns:1fr;}
+    .checks{grid-template-columns:1fr;}
+  }
+</style>
