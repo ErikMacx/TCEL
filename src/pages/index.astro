@@ -205,7 +205,7 @@ const faqSchema = {
   .pain-panel .ptop{font-family:"Fraunces",serif;font-style:italic;font-size:1.18rem;color:var(--ink);padding-bottom:.95rem;border-bottom:1px solid var(--line)}
   .pain{display:flex;gap:.85rem;align-items:flex-start;padding:.82rem 0;border-bottom:1px dashed var(--line)}
   .pain:last-child{border-bottom:0}
-  .pain .pn{font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--accent-deep);padding-top:.22rem;flex:none}
+  .pain .pn{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.68rem;color:var(--accent-deep);padding-top:.22rem;flex:none}
   .pain p{font-size:1.01rem;line-height:1.4;color:var(--ink-soft)}
   .pain p b{color:var(--ink);font-weight:600}
 
@@ -224,7 +224,7 @@ const faqSchema = {
 
   .focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem)}
   .fbox{background:linear-gradient(180deg,#FFF7F0,#FBE7D8);border:1px solid var(--line);border-top:2px solid var(--accent);border-radius:3px;padding:clamp(1.6rem,3vw,2.4rem);box-shadow:0 34px 64px -46px rgba(70,46,12,.4)}
-  .fbox .fk{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);display:block;margin-bottom:1rem}
+  .fbox .fk{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);display:block;margin-bottom:1rem}
   .fbox h3{font-size:clamp(1.35rem,1.1rem + .8vw,1.7rem);line-height:1.15;margin-bottom:.85rem}
   .fbox p{color:var(--ink-soft);font-size:1.02rem;line-height:1.5}
   .fbox p b{color:var(--ink);font-weight:600}
@@ -232,12 +232,12 @@ const faqSchema = {
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
   .pillar{padding:2.1rem 1.8rem 2.4rem;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
   .pillar:nth-child(3n){border-right:0}
-  .pillar .num{font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--accent-deep);letter-spacing:.1em;margin-bottom:1.1rem}
+  .pillar .num{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.8rem;color:var(--accent-deep);letter-spacing:.1em;margin-bottom:1.1rem}
   .pillar h3{font-size:1.5rem;margin-bottom:.8rem}
   .pillar p{color:var(--ink-soft);font-size:1rem}
   .pillar p b{color:var(--ink);font-weight:600}
   .toolkit{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.5rem}
-  .toolkit .tk-label{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+  .toolkit .tk-label{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
   .tk-grid{display:flex;flex-wrap:wrap;gap:.65rem}
   .tk{font-size:.9rem;color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:.5rem .9rem;background:#FFF8F2;display:inline-flex;align-items:center;gap:.55rem}
   .tk i{width:5px;height:5px;border-radius:50%;background:var(--accent);flex:none}
@@ -247,19 +247,19 @@ const faqSchema = {
   .portrait::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 13px,rgba(166,113,43,.06) 13px 14px)}
   .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .portrait .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:4.4rem;color:var(--line)}
-  .portrait .cap{position:absolute;bottom:0;left:0;z-index:1;padding:1.05rem 1.2rem;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  .portrait .cap{position:absolute;bottom:0;left:0;z-index:1;padding:1.05rem 1.2rem;font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
   .about-grid .body p{color:var(--ink-soft);margin-bottom:1.1rem;max-width:54ch}
   .about-grid .body p b{color:var(--ink);font-weight:600}
   .creds{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1.8rem}
   .cred{background:var(--bg);padding:1.05rem 1.15rem}
-  .cred .k{font-family:"IBM Plex Mono",monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+  .cred .k{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
   .cred .v{font-family:"Fraunces",serif;font-size:1.02rem;color:var(--ink);line-height:1.25}
 
   .dark{background:linear-gradient(180deg,var(--dark),var(--dark-2));color:var(--on-dark)}
   .dark .label{color:#CC9C54}.dark h2{color:var(--on-dark)}
   .diffs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.4rem,3vw,2.6rem);margin-top:2.4rem}
   .diff{border-top:1px solid rgba(238,229,212,.2);padding-top:1.2rem}
-  .diff .x{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#CC9C54;margin-bottom:.7rem}
+  .diff .x{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#CC9C54;margin-bottom:.7rem}
   .diff p{color:var(--on-dark);font-size:1.04rem;line-height:1.5}
   .dark .closing{margin-top:2.8rem;font-family:"Fraunces",serif;font-style:italic;font-size:clamp(1.3rem,1.1rem + 1vw,1.95rem);max-width:34ch;line-height:1.25;color:var(--on-dark)}
 
