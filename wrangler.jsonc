@@ -11,7 +11,10 @@
   "main": "worker/index.js",
   "assets": {
     "directory": "./dist",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // Serve the branded dist/404.html (from src/pages/404.astro) with a 404
+    // status for any unknown path, instead of a bare empty 404.
+    "not_found_handling": "404-page"
   }
   // Per-IP daily cap for the diagnostic is optional. To enable it, create a KV
   // namespace and bind it as RL here (the function skips the cap when unbound):
