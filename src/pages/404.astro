@@ -1,0 +1,44 @@
+---
+// Branded 404. Astro builds this to dist/404.html; the Worker serves it with a
+// 404 status for unknown paths (assets.not_found_handling: "404-page").
+import Base from '../layouts/Base.astro';
+
+const title = 'Page not found | TCEL';
+const description =
+  'This page has wandered off the plan. Head back to the homepage or take the free AI diagnostic.';
+---
+
+<Base title={title} description={description}>
+  <main id="top">
+    <section class="nf">
+      <div class="wrap">
+        <span class="label">Error 404 · Off the map</span>
+        <h1>You have wandered off the plan.</h1>
+        <p class="lead">We like to keep track of our clients, and keep our clients on track. This page, though, has drifted somewhere it should not be, and there is nothing useful here. Let us point you back to something that is.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/">Back to the homepage</a>
+          <a class="btn btn-ghost" href="/ai/diagnostic">Take the free diagnostic</a>
+        </div>
+        <nav class="nf-links" aria-label="Useful pages">
+          <a href="/#approach">Approach</a>
+          <a href="/ai">AI</a>
+          <a href="/ai/feasibility">Feasibility</a>
+          <a href="/insights">Insights</a>
+          <a href="/#faq">FAQ</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style is:global>
+  .nf{padding-block:clamp(4rem,10vw,7rem);}
+  .nf .wrap{max-width:46ch;}
+  .nf .label{display:block;margin-bottom:1.2rem;}
+  .nf h1{font-size:clamp(2.1rem,1.5rem + 2.6vw,3.4rem);max-width:18ch;margin-bottom:1.3rem;}
+  .nf .lead{font-size:clamp(1.08rem,1rem + .45vw,1.28rem);line-height:1.5;color:var(--ink-soft);max-width:54ch;margin-bottom:2rem;}
+  .nf .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;}
+  .nf-links{margin-top:2.6rem;padding-top:1.5rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;}
+  .nf-links a{color:var(--accent-deep);text-decoration:none;transition:color .2s;}
+  .nf-links a:hover{color:var(--ink);}
+</style>
