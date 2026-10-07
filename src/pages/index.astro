@@ -3,6 +3,7 @@
 // Person + ProfessionalService schema comes from Base; FAQPage is added here.
 import Base from '../layouts/Base.astro';
 import { CAL_URL } from '../consts';
+import Divider from '../components/Divider.astro';
 
 const title = 'Eric McLean | Strategy & transformation for the CEOs of complex groups | TCEL';
 const description =
@@ -92,6 +93,8 @@ const faqSchema = {
       </div>
     </section>
 
+    <Divider />
+
     <section id="approach">
       <div class="wrap">
         <div class="sec-head"><span class="label">Approach</span><h2>Three jobs, one arc.</h2></div>
@@ -109,6 +112,41 @@ const faqSchema = {
             <p>We do not create dependence. Through workshops, organisational development and management education, your people learn to run the discipline themselves. It is the same capability transfer behind the <b>Qatarisation and Omanisation</b> programmes I have led.</p>
           </div>
         </div>
+        <div class="onepage reveal">
+          <figure class="fig">
+            <svg viewBox="0 0 480 290" role="img" aria-label="OGSM cascade: Objective, Goals, Strategies and Measures, each stepping down from the one above">
+              <g class="f-box"><rect x="1" y="1" width="478" height="56"/><rect x="31" y="77" width="448" height="56"/><rect x="61" y="153" width="418" height="56"/><rect x="91" y="229" width="388" height="56"/></g>
+              <g class="f-acc"><rect x="1" y="1" width="56" height="56"/><rect x="31" y="77" width="56" height="56"/><rect x="61" y="153" width="56" height="56"/><rect x="91" y="229" width="56" height="56"/></g>
+              <g class="f-letter" text-anchor="middle"><text x="29" y="38">O</text><text x="59" y="114">G</text><text x="89" y="190">S</text><text x="119" y="266">M</text></g>
+              <text class="f-name" x="71" y="25">Objective</text><text class="f-desc" x="71" y="44">Where the group is going, in words</text>
+              <text class="f-name" x="101" y="101">Goals</text><text class="f-desc" x="101" y="120">The numbers that prove it</text>
+              <text class="f-name" x="131" y="177">Strategies</text><text class="f-desc" x="131" y="196">The choices: where to play, how to win</text>
+              <text class="f-name" x="161" y="253">Measures</text><text class="f-desc" x="161" y="272">What each business tracks every quarter</text>
+            </svg>
+            <figcaption><b>OGSM</b> One page that takes the group's objective down to what every business measures.</figcaption>
+          </figure>
+          <figure class="fig">
+            <svg viewBox="0 0 480 290" role="img" aria-label="Example Strategy Map: people and learning support internal processes, which serve customers, which grow group value">
+              <defs><marker id="sm-ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="f-ah"/></marker></defs>
+              <g class="f-sep"><line x1="0" y1="72" x2="480" y2="72"/><line x1="0" y1="144" x2="480" y2="144"/><line x1="0" y1="216" x2="480" y2="216"/></g>
+              <g class="f-tag"><text x="0" y="40">FINANCIAL</text><text x="0" y="112">CUSTOMER</text><text x="0" y="178">INTERNAL</text><text x="0" y="191">PROCESS</text><text x="0" y="250">PEOPLE &amp;</text><text x="0" y="263">LEARNING</text></g>
+              <g class="f-arrow" marker-end="url(#sm-ah)">
+                <line x1="208" y1="94" x2="262" y2="56"/><line x1="382" y1="94" x2="328" y2="56"/>
+                <line x1="208" y1="166" x2="208" y2="128"/><line x1="382" y1="166" x2="382" y2="128"/><line x1="236" y1="166" x2="352" y2="128"/>
+                <line x1="208" y1="238" x2="208" y2="200"/><line x1="382" y1="238" x2="382" y2="200"/><line x1="352" y1="238" x2="236" y2="200"/>
+              </g>
+              <rect class="f-acc" x="215" y="20" width="160" height="34"/>
+              <g class="f-box"><rect x="128" y="94" width="160" height="34"/><rect x="302" y="94" width="160" height="34"/><rect x="128" y="166" width="160" height="34"/><rect x="302" y="166" width="160" height="34"/><rect x="128" y="238" width="160" height="34"/><rect x="302" y="238" width="160" height="34"/></g>
+              <text class="f-obj f-obj-on" x="295" y="41" text-anchor="middle">Grow group value</text>
+              <g class="f-obj" text-anchor="middle">
+                <text x="208" y="115">Partner of choice in region</text><text x="382" y="115">Win cross-group accounts</text>
+                <text x="208" y="187">One operating rhythm</text><text x="382" y="187">Shared procurement</text>
+                <text x="208" y="259">Local leadership pipeline</text><text x="382" y="259">Data and AI capability</text>
+              </g>
+            </svg>
+            <figcaption><b>Strategy Map</b> An example. Each arrow says how one objective drives the one above it, up to group value.</figcaption>
+          </figure>
+        </div>
         <div class="toolkit reveal">
           <div class="tk-label">The tools we work with</div>
           <div class="tk-grid">
@@ -123,6 +161,8 @@ const faqSchema = {
         </div>
       </div>
     </section>
+
+    <Divider />
 
     <section id="about">
       <div class="wrap">
@@ -140,6 +180,21 @@ const faqSchema = {
               <div class="cred"><div class="k">Experience</div><div class="v">Four decades, hands-on</div></div>
               <div class="cred"><div class="k">Base</div><div class="v">Cyprus · EU</div></div>
             </div>
+            <figure class="fig route">
+              <svg viewBox="0 0 480 130" role="img" aria-label="Cyprus in the middle: a short hop west to Athens, Frankfurt and Brussels, and a short hop east to Doha, Dubai and Muscat">
+                <g class="f-route">
+                  <path d="M240 75 Q200 70 155 92"/><path d="M240 75 Q170 45 100 68"/><path d="M240 75 Q150 15 60 40"/>
+                  <path d="M240 75 Q280 80 325 58"/><path d="M240 75 Q310 105 380 82"/><path d="M240 75 Q330 135 420 110"/>
+                </g>
+                <circle class="f-halo" cx="240" cy="75" r="15"/>
+                <g class="f-node"><circle cx="155" cy="92" r="5"/><circle cx="100" cy="68" r="5"/><circle cx="60" cy="40" r="5"/><circle cx="325" cy="58" r="5"/><circle cx="380" cy="82" r="5"/><circle cx="420" cy="110" r="5"/><circle cx="240" cy="75" r="9"/></g>
+                <circle class="f-dot" cx="240" cy="75" r="3.5"/>
+                <g class="f-tag"><text x="146" y="110" text-anchor="end">ATHENS</text><text x="91" y="86" text-anchor="end">FRANKFURT</text><text x="51" y="58" text-anchor="end">BRUSSELS</text>
+                  <text x="334" y="50" text-anchor="start">DOHA</text><text x="389" y="74" text-anchor="start">DUBAI</text><text x="429" y="102" text-anchor="start">MUSCAT</text></g>
+                <g class="f-tag f-tag-on"><text x="0" y="12">◂ EU · WEST</text><text x="480" y="12" text-anchor="end">GULF · EAST ▸</text><text x="240" y="104" text-anchor="middle">CYPRUS</text></g>
+              </svg>
+              <figcaption>A short hop either way: the EU to the west, the Gulf to the east.</figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -177,6 +232,8 @@ const faqSchema = {
         </div>
       </div>
     </section>
+
+    <Divider />
 
     <section class="close" id="book">
       <div class="wrap">
@@ -236,6 +293,29 @@ const faqSchema = {
   .pillar h3{font-size:1.5rem;margin-bottom:.8rem}
   .pillar p{color:var(--ink-soft);font-size:1rem}
   .pillar p b{color:var(--ink);font-weight:600}
+  .onepage{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem);margin-top:2.6rem}
+  .fig{margin:0}
+  .fig svg{display:block;width:100%;height:auto;overflow:visible}
+  .fig figcaption{margin-top:1rem;font-size:.95rem;color:var(--ink-soft);max-width:52ch}
+  .fig figcaption b{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin-right:.6rem}
+  .fig .f-box rect{fill:#FFF8F2;stroke:var(--ink-soft);stroke-width:1.2}
+  .fig .f-acc,.fig .f-acc rect{fill:var(--accent)}
+  .fig .f-letter{font-family:"Fraunces",serif;font-size:26px;fill:#FFF8F2}
+  .fig .f-name{font-family:"Fraunces",serif;font-size:16px;fill:var(--ink)}
+  .fig .f-desc{font-family:"Hanken Grotesk",sans-serif;font-size:12.5px;fill:var(--muted)}
+  .fig .f-sep line{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}
+  .fig .f-tag{font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:9.5px;letter-spacing:1.2px;fill:var(--muted)}
+  .fig .f-tag-on{fill:var(--accent-deep)}
+  .fig .f-arrow line{stroke:var(--accent);stroke-width:1.4}
+  .fig .f-ah{fill:var(--accent)}
+  .fig .f-obj{font-family:"Hanken Grotesk",sans-serif;font-size:12px;fill:var(--ink)}
+  .fig .f-obj-on{fill:#FFF8F2;font-weight:600}
+  .fig .f-route path{fill:none;stroke:var(--accent);stroke-width:1.3;stroke-dasharray:4 4}
+  .fig .f-node circle{fill:#FFF8F2;stroke:var(--ink-soft);stroke-width:1.4}
+  .fig .f-dot{fill:var(--accent)}
+  .route{margin-top:2.2rem;max-width:640px}
+  .fig .f-halo{fill:var(--bg)}
+  .route figcaption{font-size:.9rem}
   .toolkit{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:1.5rem}
   .toolkit .tk-label{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
   .tk-grid{display:flex;flex-wrap:wrap;gap:.65rem}
@@ -285,6 +365,7 @@ const faqSchema = {
     .pillars{grid-template-columns:1fr}.pillar{border-right:0}
     .about-grid{grid-template-columns:1fr}.portrait{max-width:170px}.creds{grid-template-columns:1fr 1fr}
     .diffs{grid-template-columns:1fr}
+    .onepage{grid-template-columns:1fr;max-width:560px}
   }
   @media(max-width:760px){.focus-grid{grid-template-columns:1fr}}
   @media(max-width:720px){.creds{grid-template-columns:1fr}}
