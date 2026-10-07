@@ -52,6 +52,8 @@ footer .desc{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.6
 .foot-col a:hover{color:var(--on-dark)}
 .foot-col .h{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#CC9C54;margin-bottom:.9rem}
 .copy{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(238,229,212,.14);font-size:.82rem;color:var(--on-dark-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+.copy a.quiet{color:inherit;text-decoration:underline;text-decoration-color:rgba(238,229,212,.3);text-underline-offset:2px}
+.copy a.quiet:hover{color:var(--on-dark)}
 
 /* ------------------------------------------------------------------
    Accessibility pattern, preserved exactly from the source.
