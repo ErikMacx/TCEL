@@ -7,8 +7,8 @@
    Do not introduce em dashes anywhere.
    ------------------------------------------------------------------ */
 
-:root{--bg:#FFF1E5;--bg-2:#FBE7D8;--ink:#1A1611;--ink-soft:#3A332A;--muted:#5C4D40;--line:#F0D8C6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--gold:#CC9C54;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
-/* Palette: FT "Pink Sheet" salmon background (#FFF1E5), dark ink, bronze accent. */
+:root{--bg:#FADFCB;--bg-2:#F3D3BC;--ink:#1A1611;--ink-soft:#3A332A;--muted:#5C4D40;--line:#E6C0A6;--accent:#A6712B;--accent-deep:#7E520F;--dark:#241C13;--dark-2:#2F2519;--on-dark:#EEE5D4;--on-dark-muted:#AC9E87;--gold:#CC9C54;--serif:'Fraunces',Georgia,serif;--sans:'Hanken Grotesk',-apple-system,system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--maxw:1180px;--pad:clamp(1.25rem,5vw,4rem)}
+/* Palette: deep salmon background (#FADFCB, a shade deeper than FT paper #FFF1E5), dark ink, bronze accent. */
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:radial-gradient(120% 80% at 72% -8%,#FFF8F1 0%,var(--bg) 55%) no-repeat,var(--bg);color:var(--ink);font-family:"Hanken Grotesk",-apple-system,sans-serif;font-size:clamp(1rem,0.96rem + 0.2vw,1.12rem);line-height:1.66;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
@@ -52,6 +52,8 @@ footer .desc{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.6
 .foot-col a:hover{color:var(--on-dark)}
 .foot-col .h{font-family:"IBM Plex Mono",monospace; font-weight:500;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#CC9C54;margin-bottom:.9rem}
 .copy{margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(238,229,212,.14);font-size:.82rem;color:var(--on-dark-muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem}
+.copy a.quiet{color:inherit;text-decoration:underline;text-decoration-color:rgba(238,229,212,.3);text-underline-offset:2px}
+.copy a.quiet:hover{color:var(--on-dark)}
 
 /* ------------------------------------------------------------------
    Accessibility pattern, preserved exactly from the source.
